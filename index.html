@@ -3,945 +3,2127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <title>Udit Pratap Singh — Engineering Portfolio | Computer Science &amp; AI Systems</title>
-  <meta name="description" content="Personal developer portfolio of Udit Pratap Singh — Computer Science Engineering Student, Software Developer, and AI &amp; Data Science Enthusiast (NIET / AKTU). Built with high-performance racing editorial art direction.">
-  <meta name="author" content="Udit Pratap Singh">
-  <meta name="keywords" content="Udit Pratap Singh, Computer Science, Software Developer, AI, Machine Learning, PyTorch, OpenCV, AKTU, NIET, Portfolio, KIMI, Telemetry">
+  <title>KIMI — GRIDO1 Racing Systems / Kimi Antonelli</title>
 
-  <!-- Performance Optimization: Resource Preconnects -->
+  <!-- External Libraries Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.mjs"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Oswald & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph & Social Cards -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Udit Pratap Singh — Engineering Portfolio">
-  <meta property="og:description" content="Computer Science Engineering Student | Software Developer | AI &amp; Data Science Enthusiast. Inspired by racing telemetry and high-performance engineering.">
-  <meta property="og:url" content="https://uditdev0523.github.io/Portflio/">
-  <meta property="og:image" content="assets/images/hero-portrait.svg">
-  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    /* ==========================================================================
+       TOKENS — EXACT SPECIFICATION PALETTE AND TYPE SCALE
+       ========================================================================== */
+    :root {
+      /* Tier 1 — Raw Literals */
+      --raw-color-ice-50: #f7fafb;        /* frame fill */
+      --raw-color-ice-100: #ebeef1;       /* backdrop contour lines */
+      --raw-color-ice-200: #dfe5e9;       /* hairlines & dividers */
+      --raw-color-steel-400: #b6c1c8;     /* muted copy on dark */
+      --raw-color-ink-950: #090a0b;       /* all body copy */
+      --raw-color-ink-900: #0e0f14;       /* "view profile" panel fill */
+      --raw-color-ink-800: #1b1d24;
+      --raw-color-ink-700: #2a2d36;
+      --raw-color-ink-alpha-35: rgb(9 10 11 / 0.35);   /* driver_012, 01:26 */
+      --raw-color-slate-500: #7a7a7a;     /* season map: the halftone */
+      --raw-color-slate-600: #4d4d4d;     /* season map: grid lines, inner ring */
+      --raw-color-slate-900: #1e1e1e;     /* season map: the two outer rings */
+      --raw-color-cyan-400: #02d2e3;      /* accent */
+      --raw-color-cyan-alpha-25: rgb(2 210 227 / 0.25);
+      --raw-color-stone-600: #535450;     /* timeline: plate outline */
+      --raw-color-white-alpha-10: rgb(255 255 255 / 0.1);  /* timeline plate fill; footer contours */
+      --raw-color-white-alpha-20: rgb(255 255 255 / 0.2);  /* timeline: the rail */
+      --raw-color-ink-alpha-08: rgb(9 10 11 / 0.08);       /* paddock: the contour lines */
+      --raw-color-white-alpha-40: rgb(255 255 255 / 0.4);  /* footer: the copyright */
+      --raw-color-white: #ffffff;
+      --raw-color-orange-500: #ff6b00;
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#0E0F14">
-  <meta name="color-scheme" content="dark light">
+      --raw-font-size-96: 6rem;      /* "kimi antonelli" */
+      --raw-font-size-70: 4.375rem;  /* the name on phones */
+      --raw-font-size-52: 3.25rem;   /* the headline below 1024 */
+      --raw-font-size-38: 2.375rem;  /* stat figures */
+      --raw-font-size-20: 1.25rem;   /* "view profile" */
+      --raw-font-size-18: 1.125rem;  /* driver meta rows */
+      --raw-font-size-16: 1rem;      /* nav, "[ Garage → ]" */
+      --raw-font-size-14: 0.875rem;  /* panel body, "watch trailer", socials */
+      --raw-font-size-12: 0.75rem;   /* panel eyebrows, stat labels */
+      --raw-font-size-55: 3.4375rem; /* "the season so far" */
+      --raw-font-size-36: 2.25rem;   /* timeline years */
 
-  <!-- Favicon / Brand Symbol -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E0F14'/><path d='M8 6 L8 26 L24 26' stroke='%2302D2E3' stroke-width='4' fill='none'/><circle cx='20' cy='12' r='4' fill='%2302D2E3'/></svg>">
+      --raw-leading-95: 0.95;   /* headline */
+      --raw-leading-90: 0.9;    /* every other uppercase run */
+      --raw-leading-72: 0.72;   /* cap-height text-box trim */
+      --raw-leading-110: 1.1;   /* floor for clipped text reveals */
+      --raw-tracking-stat: -0.08em;
+      --raw-tracking-label: -0.04em;
+      --raw-tracking-eyebrow: -0.02em;
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/telemetry.css">
+      --raw-radius-16: 1rem; --raw-radius-48: 3rem; --raw-radius-100: 6.25rem;
+      --raw-duration-fast: 150ms; --raw-duration-normal: 250ms; --raw-duration-slow: 700ms;
+      --raw-edge-fade-share: 10%; --raw-edge-fade-length: 6rem;
 
-  <!-- No-Script Fallback: Ensures zero page-lock if JS is disabled -->
-  <noscript>
-    <style>
-      .telemetry-preloader { display: none !important; }
-      body.is-loading { overflow: auto !important; }
-      .telemetry-cursor-ring, .telemetry-cursor-dot { display: none !important; }
-    </style>
-  </noscript>
+      /* Tier 2 — Roles */
+      --background: var(--raw-color-ice-50);
+      --foreground: var(--raw-color-ink-950);
+      --foreground-muted: var(--raw-color-ink-alpha-35);
+      --surface-dark: var(--raw-color-ink-900);
+      --surface-dark-raised: var(--raw-color-ink-800);
+      --surface-black: var(--raw-color-ink-950);
+      --surface-muted: var(--raw-color-ice-100);
+      --surface-soft: var(--raw-color-ice-200);
+      --foreground-on-dark: var(--raw-color-white);
+      --foreground-on-dark-muted: var(--raw-color-steel-400);
+      --foreground-on-dark-faint: var(--raw-color-white-alpha-40);
+      --border-muted: var(--raw-color-ice-200);
+      --border-on-dark: var(--raw-color-ink-700);
+      --map-dot: var(--raw-color-slate-500);
+      --map-grid: var(--raw-color-slate-600);
+      --map-grid-ghost: var(--raw-color-slate-900);
+      --map-mark: var(--raw-color-ice-50);
+      --timeline-outline: var(--raw-color-stone-600);
+      --timeline-fill: var(--raw-color-white-alpha-10);
+      --timeline-rail: var(--raw-color-white-alpha-20);
+      --paddock-contour: var(--raw-color-ink-alpha-08);
+      --footer-contour: var(--raw-color-white-alpha-10);
+      --accent: var(--raw-color-cyan-400);
+      --accent-muted: var(--raw-color-cyan-alpha-25);
+      
+      --type-impact: var(--raw-font-size-96); --type-display-lg: var(--raw-font-size-70);
+      --type-display: var(--raw-font-size-52); --type-heading: var(--raw-font-size-38);
+      --type-title: var(--raw-font-size-20); --type-lead: var(--raw-font-size-18);
+      --type-label: var(--raw-font-size-16); --type-body: var(--raw-font-size-14);
+      --type-eyebrow: var(--raw-font-size-12); --type-display-sm: var(--raw-font-size-55);
+      --type-year: var(--raw-font-size-36);
+      
+      --leading-headline: 0.95; --leading-flat: 0.9; --leading-cap: 0.72; --leading-display: 1.1;
+      --duration-fast: 150ms; --duration-normal: 250ms; --duration-plate: 700ms;
+      --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
+      --ease-plate: cubic-bezier(0.33, 0, 0, 1);
+      --font-sans: "Space Grotesk", system-ui, sans-serif;
+      --font-display: "Oswald", Impact, sans-serif;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html {
+      font-size: 16px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Root Font-Size Bands */
+    @media (max-width: 1920px) { html { font-size: 0.833333vw; } }   /* 16*100/1920 */
+    @media (max-width: 1440px) { html { font-size: 1.111111vw; } }   /* 16*100/1440 */
+    @media (max-width: 1279px) { html { font-size: 16px; } }
+
+    /* 1441–1920 Band Scaling Multiplier */
+    @media (min-width: 1441px) and (max-width: 1920px) {
+      [data-hero] {
+        --hero-base: calc(1920 / 1440);
+        --type-impact: calc(6rem * var(--hero-base));
+        --type-display-lg: calc(4.375rem * var(--hero-base));
+        --type-display: calc(3.25rem * var(--hero-base));
+        --type-heading: calc(2.375rem * var(--hero-base));
+        --type-title: calc(1.25rem * var(--hero-base));
+        --type-lead: calc(1.125rem * var(--hero-base));
+        --type-label: calc(1rem * var(--hero-base));
+        --type-body: calc(0.875rem * var(--hero-base));
+        --type-eyebrow: calc(0.75rem * var(--hero-base));
+      }
+      [data-hero] [data-hero-panels] { width: calc(13.625rem * var(--hero-base, 1)); }
+      [data-hero] [data-hero-stats]  { width: calc(10.75rem * var(--hero-base, 1)); }
+      [data-hero] [data-hero-map]    { height: calc(3.125rem * var(--hero-base, 1)); width: calc(4.875rem * var(--hero-base, 1)); }
+      [data-season] {
+        --season-base: calc(1920 / 1440);
+        --type-display-sm: calc(3.4375rem * var(--season-base));
+        --type-lead: calc(1.125rem * var(--season-base));
+        --type-body: calc(0.875rem * var(--season-base));
+        --type-eyebrow: calc(0.75rem * var(--season-base));
+      }
+    }
+
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      min-height: 100lvh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; text-transform: inherit; border: none; background: none; cursor: pointer; }
+    ul { list-style: none; }
+
+    /* ==========================================================================
+       THE STICKY STACK CONTAINER
+       ========================================================================== */
+    .sticky-stack-container {
+      position: relative;
+      background: var(--surface-black);
+    }
+
+    .sticky-layer {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      min-height: 100lvh;
+      overflow: hidden;
+    }
+
+    .sticky-layer[data-hero] { z-index: 0; }
+    .sticky-layer[data-season] { z-index: 10; }
+    .sticky-layer-timeline {
+      position: relative;
+      z-index: 20;
+      min-height: 100vh;
+    }
+
+    .sticky-layer-inner {
+      width: 100%;
+      height: 100%;
+      transform-origin: center;
+      position: relative;
+    }
+
+    .sticky-layer-shade {
+      position: absolute;
+      inset: 0;
+      background: var(--surface-black);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 25;
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    [data-hero] {
+      position: relative;
+      isolation: isolate;
+      min-height: 100lvh;
+      overflow: hidden;
+      background: var(--background);
+    }
+
+    .hero-scene-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .hero-content-col {
+      min-height: 100lvh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    @media (max-height: 500px) {
+      .hero-content-col { padding: 0.75rem 1.5rem; }
+    }
+    @media (min-width: 640px) {
+      .hero-content-col { padding: 1.5rem 2rem; }
+    }
+
+    /* Hero Masthead */
+    .hero-masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 30;
+      height: 2rem;
+    }
+
+    .masthead-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--foreground);
+    }
+
+    .masthead-logo-star {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .masthead-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 4rem;
+    }
+
+    @media (max-width: 1279px) {
+      .masthead-nav { display: none; }
+    }
+
+    .masthead-nav a {
+      font-size: var(--type-label);
+      line-height: 0.9;
+      color: var(--foreground);
+      font-weight: 500;
+      transition: color var(--duration-fast) var(--ease-entrance);
+    }
+
+    .masthead-nav a:hover {
+      color: var(--accent);
+    }
+
+    .masthead-garage {
+      font-size: var(--type-label);
+      font-weight: 700;
+      color: var(--foreground);
+      transition: color var(--duration-fast) var(--ease-entrance);
+    }
+
+    .masthead-garage:hover { color: var(--accent); }
+    @media (max-width: 1279px) { .masthead-garage { display: none; } }
+
+    /* Burger for < xl */
+    .masthead-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3125rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 0.5rem;
+      margin-right: -0.5rem;
+    }
+
+    @media (max-width: 1279px) { .masthead-burger { display: flex; } }
+
+    .masthead-burger span {
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--foreground);
+    }
+
+    /* Hero Middle Row */
+    .hero-middle-row {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 20;
+    }
+
+    @media (max-width: 1279px) {
+      .hero-middle-row {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+
+    /* Driver Identity Left Rail */
+    .driver-identity {
+      position: relative;
+      max-width: 26.0625rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .driver-id-badge {
+      font-size: var(--type-label);
+      color: var(--foreground-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 1280px) {
+      .driver-id-badge {
+        position: absolute;
+        left: 20.0625rem;
+        top: 0.5625rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .driver-name-h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--type-impact);
+      line-height: var(--leading-headline);
+      color: var(--foreground);
+      max-width: 6em;
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 0.3em;
+    }
+
+    @media (max-width: 639px) { .driver-name-h1 { font-size: var(--type-display-lg); margin-bottom: 1.5rem; } }
+
+    .driver-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .driver-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--type-lead);
+      line-height: var(--leading-flat);
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    .driver-meta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Right Rail Panels */
+    .hero-panels-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 13.625rem;
+    }
+
+    @media (max-width: 639px) {
+      .hero-panels-col { display: none; }
+    }
+
+    /* Bracket Panel Component */
+    .bracket-panel {
+      position: relative;
+      padding: 1rem 1.375rem 1.1875rem;
+    }
+
+    .bracket-corner {
+      position: absolute;
+      width: 0.625rem;
+      height: 0.625rem;
+      stroke: var(--foreground);
+      fill: none;
+    }
+    .bracket-corner-tr { top: 0; right: 0; }
+    .bracket-corner-tl { top: 0; left: 0; transform: scaleX(-1); }
+    .bracket-corner-bl { bottom: 0; left: 0; transform: scale(-1); }
+    .bracket-corner-br { bottom: 0; right: 0; transform: scaleY(-1); }
+
+    .panel-eyebrow {
+      font-size: var(--type-eyebrow);
+      font-weight: 500;
+      line-height: var(--leading-flat);
+      letter-spacing: var(--raw-tracking-eyebrow);
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .panel-body-dl {
+      font-size: var(--type-body);
+      line-height: var(--leading-flat);
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .panel-body-dl dt { font-weight: 700; }
+    .panel-body-dl dd { color: var(--foreground); }
+
+    .panel-circuit-svg {
+      width: 4.375rem;
+      height: 6.25rem;
+      margin-top: 1.25rem;
+      stroke: var(--accent);
+      fill: none;
+    }
+
+    /* Stats Grid */
+    .stats-dl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-cell { display: flex; flex-direction: column; gap: 0.25rem; }
+    .stat-label {
+      font-size: var(--type-eyebrow);
+      letter-spacing: var(--raw-tracking-label);
+      white-space: nowrap;
+      color: var(--foreground-muted);
+    }
+    .stat-figure {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--type-heading);
+      line-height: var(--leading-cap);
+      letter-spacing: var(--raw-tracking-stat);
+      color: var(--foreground);
+    }
+
+    /* Actions Row (Foot) */
+    .hero-actions-row {
+      margin-top: 0.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      gap: 2rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    @media (max-width: 639px) {
+      .hero-actions-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .action-trailer-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    @media (max-width: 639px) { .action-trailer-wrap { display: none; } }
+
+    .trailer-btn-icon {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--border-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--foreground);
+      transition: border-color var(--duration-fast);
+    }
+    .trailer-btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+
+    .trailer-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      font-size: var(--type-body);
+      line-height: var(--leading-flat);
+    }
+    .trailer-label { font-weight: 500; }
+    .trailer-label:hover { color: var(--accent); }
+    .trailer-time { color: var(--foreground-muted); }
+
+    /* Chamfered Profile CTA */
+    .profile-cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.6em;
+      height: 2.5em;
+      width: 11em;
+      font-size: var(--type-title);
+      font-weight: 700;
+      color: var(--accent);
+      cursor: pointer;
+    }
+    @media (max-width: 639px) {
+      .profile-cta-btn {
+        width: 100%;
+        height: 3.5rem;
+      }
+    }
+
+    .profile-cta-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .profile-cta-label {
+      position: relative;
+      z-index: 2;
+      line-height: 0.9;
+      color: var(--accent);
+      transition: color var(--duration-normal);
+    }
+    .profile-cta-arrow {
+      position: relative;
+      z-index: 2;
+      width: 0.65em;
+      height: 0.5em;
+      stroke: var(--accent);
+      fill: none;
+      transition: transform var(--duration-fast), stroke var(--duration-normal);
+    }
+
+    .profile-cta-btn:hover .profile-cta-label { color: var(--surface-black); }
+    .profile-cta-btn:hover .profile-cta-arrow {
+      stroke: var(--surface-black);
+      transform: translateX(0.25rem);
+    }
+    .profile-cta-btn:hover .profile-cta-flood {
+      transform: scaleX(1);
+    }
+
+    .profile-cta-flood {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform var(--duration-normal) var(--ease-plate);
+    }
+
+    .action-socials-wrap {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      font-size: var(--type-body);
+      font-weight: 500;
+    }
+    @media (min-width: 1280px) { .action-socials-wrap { gap: 3.6875rem; } }
+    @media (max-width: 639px) { .action-socials-wrap { display: none; } }
+
+    .action-socials-wrap a:hover { color: var(--accent); }
+
+    /* ==========================================================================
+       LOADING VEIL
+       ========================================================================== */
+    .loading-veil {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--background);
+      pointer-events: auto;
+      transition: opacity 0.5s ease;
+    }
+
+    .veil-helmet-box {
+      position: relative;
+      width: 7.2rem;
+      height: 8.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .veil-helmet-outline {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: var(--foreground);
+      stroke-opacity: 0.15;
+    }
+
+    .veil-helmet-fill {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      fill: var(--foreground);
+      transform-origin: top;
+      transform: scaleY(0);
+    }
+
+    .veil-driver-name {
+      margin-top: 1.75rem;
+      font-size: var(--type-lead);
+      line-height: var(--leading-flat);
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      color: var(--foreground);
+    }
+
+    .veil-progress-meter {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--border-muted);
+    }
+
+    .veil-progress-fill {
+      width: 100%;
+      height: 100%;
+      background: var(--foreground);
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    /* ==========================================================================
+       2. THE SEASON SO FAR (DARK SURFACE)
+       ========================================================================== */
+    [data-season] {
+      container-type: inline-size;
+      position: relative;
+      isolation: isolate;
+      min-height: 100lvh;
+      overflow: hidden;
+      background: var(--surface-black);
+      color: var(--foreground-on-dark);
+    }
+
+    /* Chequered Seam Canvas */
+    .chequered-dissolve-canvas {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 34svh;
+      pointer-events: none;
+      z-index: 10;
+      width: 100%;
+    }
+
+    .season-content-col {
+      position: relative;
+      min-height: 100lvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 4rem;
+      padding: 4.8611cqw 1.5rem 2rem;
+      z-index: 15;
+    }
+
+    @media (min-width: 640px) {
+      .season-content-col {
+        padding-inline: max(2.2222cqw, 32px);
+        padding-bottom: max(2.2222cqw, 32px);
+      }
+    }
+
+    .season-header-block {
+      max-width: 32rem;
+    }
+
+    .season-heading-h2 {
+      font-family: var(--font-display);
+      font-size: max(3.8194cqw, 40px);
+      font-weight: 700;
+      line-height: 0.95;
+      color: var(--accent);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .season-heading-dot {
+      color: var(--foreground-on-dark);
+    }
+
+    .season-cyan-rule {
+      width: 1.6667cqw;
+      min-width: 24px;
+      height: 0.1389cqw;
+      min-height: 2px;
+      background: var(--accent);
+      margin-top: 1.9444cqw;
+      transform-origin: left;
+    }
+
+    .season-intro-p {
+      margin-top: 2.0833cqw;
+      width: max(16.1111cqw, 15rem);
+      font-size: max(1.25cqw, 15px);
+      line-height: 1.1;
+      color: var(--foreground-on-dark-muted);
+      font-weight: 500;
+    }
+
+    /* Standings Plate */
+    .standings-plate {
+      align-self: flex-end;
+      position: relative;
+      width: max(19.2361cqw, 277px);
+      height: max(5.4167cqw, 78px);
+      display: grid;
+      grid-template-columns: max(5.7639cqw, 83px) 1fr;
+    }
+
+    .standings-plate-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .standings-badge-cell {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .globe-meridian-svg {
+      width: 37px;
+      height: 23px;
+      stroke: var(--accent);
+      fill: none;
+    }
+
+    .standings-badge-tag {
+      font-size: 0.75rem;
+      line-height: 0.72;
+      display: flex;
+      gap: 0.3em;
+    }
+    .standings-badge-tag .tag-white { color: var(--foreground-on-dark); font-weight: 700; }
+    .standings-badge-tag .tag-cyan { color: var(--accent); }
+
+    .standings-stats-cell {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 1rem;
+      gap: 0.55rem;
+      font-size: 0.875rem;
+      line-height: 0.72;
+    }
+
+    .standings-stat-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35em;
+      white-space: nowrap;
+    }
+    .standings-stat-row dt { color: var(--accent); font-weight: 700; }
+    .standings-stat-row dd { color: var(--foreground-on-dark); font-weight: 500; }
+
+    /* Circuit Stage */
+    .circuit-stage-frame {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 2;
+      mask-image: linear-gradient(to bottom, transparent 0, #000 10%, #000 90%, transparent 100%);
+    }
+
+    .circuit-stage-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1440px;
+      height: 800px;
+      transform-origin: top left;
+    }
+
+    .circuit-trace-canvas {
+      position: absolute;
+      inset: 0;
+      width: 1440px;
+      height: 800px;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .circuit-map-svg {
+      position: absolute;
+      top: -4.559px;
+      width: 1438.43px;
+      height: 809.11px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* ==========================================================================
+       3. FROM KARTS TO F1 (CAREER TIMELINE)
+       ========================================================================== */
+    [data-timeline] {
+      container-type: inline-size;
+      position: relative;
+      background: var(--surface-black);
+      color: var(--foreground-on-dark);
+      padding: 6rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .timeline-inner-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline-rail-central {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--timeline-rail);
+      transform: translateX(-50%);
+    }
+
+    .timeline-rail-marker {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--accent);
+      background: var(--surface-black);
+      transform: translate(-50%, 0) rotate(0deg);
+      transition: transform 0.1s linear;
+    }
+
+    .timeline-stepped-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .timeline-plate-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      transition: opacity var(--duration-normal);
+    }
+
+    .timeline-plate-row:nth-child(even) .plate-card {
+      grid-column: 2;
+    }
+    .timeline-plate-row:nth-child(even) .plate-meta {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: right;
+    }
+
+    .plate-card {
+      background: var(--timeline-fill);
+      border: 1px solid var(--timeline-outline);
+      padding: 2rem;
+      position: relative;
+      backdrop-filter: blur(8px);
+      transition: border-color var(--duration-fast);
+    }
+
+    .plate-card:hover {
+      border-color: var(--accent);
+    }
+
+    .plate-year {
+      font-family: var(--font-display);
+      font-size: var(--type-year);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .plate-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--foreground-on-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .plate-desc {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: var(--foreground-on-dark-muted);
+    }
+
+    /* ==========================================================================
+       4. FROM THE PADDOCK (LIGHT SURFACE)
+       ========================================================================== */
+    [data-paddock] {
+      container-type: inline-size;
+      position: relative;
+      background: var(--background);
+      color: var(--foreground);
+      padding: 6rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .paddock-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .paddock-masthead-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      font-weight: 700;
+      line-height: 0.95;
+      margin-bottom: 3rem;
+    }
+
+    .calendar-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .calendar-round-cell {
+      background: var(--surface-soft);
+      border: 1px solid var(--border-muted);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    .calendar-round-cell.live-round {
+      border-color: var(--accent);
+      background: var(--white);
+    }
+
+    .round-num {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .round-grand-prix {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--foreground);
+    }
+
+    .round-track {
+      font-size: 0.8rem;
+      color: var(--foreground-muted);
+    }
+
+    /* ==========================================================================
+       5. KEEP PUSHING FORWARD (SIGNOFF & FOOTER)
+       ========================================================================== */
+    [data-signoff] {
+      background: var(--accent);
+      padding: 16px;
+      position: relative;
+    }
+
+    .signoff-dark-panel {
+      background: var(--surface-dark);
+      color: var(--foreground-on-dark);
+      padding: 5rem 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 60vh;
+      position: relative;
+    }
+
+    .signoff-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      color: var(--foreground-on-dark);
+      max-width: 14em;
+    }
+
+    .signoff-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border-on-dark);
+      padding-top: 2rem;
+    }
+
+    .legal-copy {
+      font-size: 0.75rem;
+      color: var(--foreground-on-dark-faint);
+    }
+
+    .footer-nav-col {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .footer-nav-col a:hover { color: var(--accent); }
+  </style>
 </head>
+<body>
 
-<body class="is-loading">
+  <!-- ==========================================================================
+       LOADING VEIL
+       ========================================================================== -->
+  <div id="loading-veil" class="loading-veil" role="status" aria-label="Loading Grido1 Racing Systems">
+    <div class="veil-helmet-box">
+      <!-- Silhouette Mask -->
+      <svg class="veil-helmet-outline" viewBox="0 0 100 120">
+        <path d="M50 5 C22 5 12 30 12 60 C12 90 25 110 50 115 C75 110 88 90 88 60 C88 30 78 5 50 5 Z M20 62 Q50 82 80 62 L80 50 Q50 65 20 50 Z" />
+      </svg>
+      <svg class="veil-helmet-fill" id="veil-helmet-fill-elem" viewBox="0 0 100 120">
+        <path d="M50 5 C22 5 12 30 12 60 C12 90 25 110 50 115 C75 110 88 90 88 60 C88 30 78 5 50 5 Z M20 62 Q50 82 80 62 L80 50 Q50 65 20 50 Z" />
+      </svg>
+    </div>
 
-  <!-- 1. PRELOADER VEIL -->
-  <div id="telemetry-preloader" class="telemetry-preloader" aria-live="polite">
-    <div class="preloader-inner">
-      <div class="preloader-header">
-        <span class="preloader-title">SYSTEM BOOT // DEV_001.UPS</span>
-        <span id="loader-progress-text" class="preloader-progress-digit">0%</span>
-      </div>
-      <div class="preloader-bar-track">
-        <div id="loader-progress-bar" class="preloader-bar-fill"></div>
-      </div>
-      <div id="loader-log-feed" class="loader-feed">
-        <div class="loader-log-line">&gt; INITIALIZING KERNEL 24.14...</div>
-      </div>
+    <div class="veil-driver-name" id="veil-driver-name">
+      KIMI ANTONELLI
+    </div>
+
+    <div class="veil-progress-meter">
+      <div class="veil-progress-fill" id="veil-progress-fill-elem"></div>
     </div>
   </div>
 
-  <!-- 2. CUSTOM TELEMETRY RETICLE CURSOR -->
-  <div class="telemetry-cursor-ring" aria-hidden="true"></div>
-  <div class="telemetry-cursor-dot" aria-hidden="true"></div>
+  <!-- ==========================================================================
+       THE STICKY STACK WRAPPER
+       ========================================================================== -->
+  <div class="sticky-stack-container" id="sticky-stack">
 
-  <!-- 3. FIXED TELEMETRY HEADER / NAVIGATION BAR -->
-  <header class="telemetry-header" role="banner">
-    <div class="container header-container">
-      <a href="#hero" class="header-brand" aria-label="Udit Pratap Singh Home">
-        <div class="header-logo-mark">U</div>
-        <div class="header-brand-info">
-          <span class="header-logo">UDIT PRATAP SINGH</span>
-          <span class="header-dev-id">DEVELOPER_001 // NCR_28.47N</span>
+    <!-- -------------------------------------------------------------
+         BLOCK 1: HERO
+         ----------------------------------------------------------- -->
+    <section class="sticky-layer" data-hero id="hero-section">
+      <div class="sticky-layer-inner" id="hero-inner">
+        <!-- 3D WebGL Canvas Layer -->
+        <canvas class="hero-scene-canvas" id="hero-scene-canvas" aria-hidden="true"></canvas>
+
+        <div class="hero-content-col">
+          <!-- Masthead -->
+          <header class="hero-masthead">
+            <a href="/" class="masthead-logo" aria-label="Grido1 Racing Systems">
+              <span>GRIDO1</span>
+              <span class="masthead-logo-star">✦</span>
+              <span style="font-size: 0.8em; color: var(--foreground-muted);">RACING</span>
+            </a>
+
+            <nav class="masthead-nav">
+              <a href="#driver">DRIVER</a>
+              <a href="#season">SEASON</a>
+              <a href="#journey">JOURNEY</a>
+              <a href="#next-race">NEXT RACE</a>
+              <a href="#store">STORE</a>
+            </nav>
+
+            <a href="#garage" class="masthead-garage">
+              <span>[ </span>GARAGE<span> → ]</span>
+            </a>
+
+            <button type="button" class="masthead-burger" id="burger-btn" aria-label="Open Navigation Menu">
+              <span></span><span></span>
+            </button>
+          </header>
+
+          <!-- Middle Row -->
+          <div class="hero-middle-row">
+            <!-- Left Rail: Driver Identity -->
+            <div class="driver-identity">
+              <span class="driver-id-badge">DRIVER_012</span>
+              
+              <h1 class="driver-name-h1" id="hero-driver-h1">
+                KIMI ANTONELLI
+              </h1>
+
+              <div class="driver-meta-list">
+                <div class="driver-meta-item">
+                  <span class="driver-meta-icon">🇮🇹</span>
+                  <span>ITALY</span>
+                </div>
+                <div class="driver-meta-item">
+                  <span class="driver-meta-icon" style="color: var(--accent);">✦</span>
+                  <span>ROOKIE SEASON_2026</span>
+                </div>
+                <div class="driver-meta-item">
+                  <span class="driver-meta-icon" style="color: var(--accent);">✦</span>
+                  <span>MERCEDES-AMG F1 TEAM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Rail: Panels -->
+            <div class="hero-panels-col" data-hero-panels>
+              <!-- Panel 1: Next Race -->
+              <div class="bracket-panel">
+                <svg class="bracket-corner bracket-corner-tr" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-tl" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-bl" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-br" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+
+                <span class="panel-eyebrow">NEXT RACE</span>
+                <dl class="panel-body-dl">
+                  <dt>BELGIAN GP</dt>
+                  <dd>SPA-FRANCORCHAMPS</dd>
+                  <dd><time datetime="2026-07-27">27 JUL 2026</time></dd>
+                </dl>
+                
+                <svg class="panel-circuit-svg" viewBox="0 0 100 120">
+                  <path d="M10 80 L35 15 L70 30 L90 70 L60 105 L25 100 Z" stroke-width="2" />
+                </svg>
+              </div>
+
+              <!-- Panel 2: Season Stats -->
+              <div class="bracket-panel">
+                <svg class="bracket-corner bracket-corner-tr" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-tl" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-bl" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+                <svg class="bracket-corner bracket-corner-br" viewBox="0 0 10.5 10.5"><path d="M0 0.5H10V10.5"/></svg>
+
+                <span class="panel-eyebrow">SEASON STATS</span>
+                <dl class="stats-dl-grid" data-hero-stats>
+                  <div class="stat-cell">
+                    <dt class="stat-label">RACES</dt>
+                    <dd class="stat-figure">12</dd>
+                  </div>
+                  <div class="stat-cell">
+                    <dt class="stat-label">PODIUMS</dt>
+                    <dd class="stat-figure">3</dd>
+                  </div>
+                  <div class="stat-cell">
+                    <dt class="stat-label">POINTS</dt>
+                    <dd class="stat-figure">118</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions Row (Foot) -->
+          <footer class="hero-actions-row">
+            <div class="action-trailer-wrap">
+              <a href="#trailer" class="trailer-btn-icon" aria-label="Watch Trailer">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor">
+                  <path d="M0 0 L12 7 L0 14 Z"/>
+                </svg>
+              </a>
+              <div class="trailer-text-col">
+                <span class="trailer-label">WATCH TRAILER</span>
+                <span class="trailer-time">01:26</span>
+              </div>
+            </div>
+
+            <!-- Profile CTA with SVG Frame -->
+            <a href="#profile" class="profile-cta-btn">
+              <svg class="profile-cta-svg" viewBox="0 0 220 50" preserveAspectRatio="none">
+                <path class="profile-cta-body" d="M220 42L212.932 50H0V0H220V42Z" fill="#0E0F14"/>
+                <path class="profile-cta-flood" d="M220 42L212.932 50H0V0H220V42Z" fill="#02D2E3"/>
+                <path d="M220 42L212.932 50H0V0H220V42Z" fill="none" stroke="#02D2E3" stroke-opacity="0.25"/>
+                <path d="M205 49.5H213L219.5 42V36 M212 0.5H219.5V7 M8 0.5H0.5V7 M7.5 49.5H0.5V42.5" fill="none" stroke="#02D2E3"/>
+              </svg>
+              <span class="profile-cta-label">VIEW PROFILE</span>
+              <svg class="profile-cta-arrow" viewBox="0 0 13.7 10.7">
+                <path d="M0 5.35H13M8 10.35L13 5.35L8 0.35" stroke-width="1.5"/>
+              </svg>
+            </a>
+
+            <div class="action-socials-wrap">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">INST</a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+            </div>
+          </footer>
         </div>
+
+        <!-- Sticky Recede Shade -->
+        <div class="sticky-layer-shade" id="hero-shade"></div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         BLOCK 2: THE SEASON SO FAR
+         ----------------------------------------------------------- -->
+    <section class="sticky-layer" data-season id="season-section">
+      <div class="sticky-layer-inner" id="season-inner">
+        <!-- Chequered Dissolve Seam Canvas -->
+        <canvas class="chequered-dissolve-canvas" id="season-chequered-canvas"></canvas>
+
+        <!-- Circuit Background Stage -->
+        <div class="circuit-stage-frame">
+          <div class="circuit-stage-inner" id="circuit-stage-inner">
+            <!-- Halftone landmass canvas -->
+            <canvas class="circuit-map-svg" id="season-halftone-canvas" width="2560" height="1440"></canvas>
+            
+            <!-- Map SVG -->
+            <svg class="circuit-map-svg" viewBox="0 0 2560 1440">
+              <defs>
+                <mask id="circuit-track-mask">
+                  <rect width="2560" height="1440" fill="white"/>
+                  <!-- Flag cut gap -->
+                  <g transform="translate(822.96, 921.57) rotate(144)">
+                    <rect x="-18" y="-20" width="36" height="40" fill="black"/>
+                  </g>
+                </mask>
+              </defs>
+
+              <!-- Crawling Grid Lines -->
+              <g stroke="#4d4d4d" stroke-width="2.13" stroke-dasharray="12.15 8.35" id="crawling-grid-group">
+                <line x1="645.31" y1="-2000" x2="645.31" y2="4000"/>
+                <line x1="1276.96" y1="-2000" x2="1276.96" y2="4000"/>
+                <line x1="1908.61" y1="-2000" x2="1908.61" y2="4000"/>
+                <line x1="-2000" y1="697.98" x2="5000" y2="697.98"/>
+              </g>
+
+              <!-- Central Hub Rings & Ping -->
+              <g transform="translate(1278.48, 699.5)">
+                <circle r="69.85" fill="none" stroke="#4d4d4d" stroke-width="3.04"/>
+                <circle r="356.06" fill="none" stroke="#1e1e1e" stroke-width="2.13"/>
+                <circle r="442.61" fill="none" stroke="#1e1e1e" stroke-width="2.13"/>
+                <circle r="10.63" fill="#f7fafb"/>
+                <circle id="hub-ping-circle" r="10.63" fill="none" stroke="#02d2e3" stroke-width="2.13" opacity="0.4"/>
+              </g>
+
+              <!-- Chequered Flag Diamonds -->
+              <path d="M807.78 899.17L813.85 905.24L807.78 911.31L801.71 905.24ZM822.21 902.21L828.28 908.28L822.21 914.35L816.14 908.28ZM807.02 915.88L813.09 921.95L807.02 928.02L800.95 921.95ZM821.45 915.88L827.52 921.95L821.45 928.02L815.38 921.95ZM835.87 915.88L841.94 921.95L835.87 928.02L829.8 921.95ZM826.0 931.82L832.07 937.89L826.0 943.96L819.93 937.89ZM838.91 931.82L844.98 937.89L838.91 943.96L832.84 937.89Z" fill="#f7fafb"/>
+            </svg>
+
+            <!-- 1440x800 Trace Canvas -->
+            <canvas class="circuit-trace-canvas" id="season-trace-canvas" width="1440" height="800"></canvas>
+          </div>
+        </div>
+
+        <div class="season-content-col">
+          <div class="season-header-block">
+            <h2 class="season-heading-h2">
+              <span>THE SEASON</span>
+              <span>SO FAR<span class="season-heading-dot">.</span></span>
+            </h2>
+            <div class="season-cyan-rule"></div>
+            <p class="season-intro-p">
+              EVERY RACE IS A STEP FORWARD. HERE'S HOW THE SEASON IS SHAPING UP.
+            </p>
+          </div>
+
+          <!-- Standings Plate Bottom Right -->
+          <div class="standings-plate">
+            <svg class="standings-plate-svg" viewBox="0 0 277 78">
+              <path d="M0.5 0.5H276.5V69L268 77.5H0.5Z" fill="#090A0B" stroke="#02D2E3" stroke-width="1"/>
+              <line x1="83" y1="0" x2="83" y2="78" stroke="#02D2E3" stroke-width="1"/>
+            </svg>
+
+            <div class="standings-badge-cell">
+              <svg class="globe-meridian-svg" viewBox="0 0 37 23">
+                <ellipse cx="18.5" cy="11.5" rx="18" ry="11"/>
+                <line x1="0.5" y1="11.5" x2="36.5" y2="11.5"/>
+                <ellipse id="globe-meridian-ellipse" cx="18.5" cy="11.5" rx="18" ry="11"/>
+              </svg>
+              <div class="standings-badge-tag">
+                <span class="tag-white">F1</span>
+                <span class="tag-cyan">/ 2026</span>
+              </div>
+            </div>
+
+            <div class="standings-stats-cell">
+              <div class="standings-stat-row">
+                <dt>P1</dt>
+                <dd>IN THE CHAMPIONSHIP</dd>
+              </div>
+              <div class="standings-stat-row">
+                <dt>6</dt>
+                <dd>WINS</dd>
+              </div>
+              <div class="standings-stat-row">
+                <dt>9</dt>
+                <dd>PODIUMS.</dd>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Recede Shade -->
+        <div class="sticky-layer-shade" id="season-shade"></div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         BLOCK 3: FROM KARTS TO F1 (CAREER TIMELINE)
+         ----------------------------------------------------------- -->
+    <section class="sticky-layer-timeline" data-timeline id="timeline-section">
+      <div class="timeline-inner-wrap">
+        <div class="timeline-rail-central">
+          <div class="timeline-rail-marker" id="timeline-rail-marker"></div>
+        </div>
+
+        <div class="timeline-stepped-list">
+          <!-- Item 1 -->
+          <div class="timeline-plate-row">
+            <div class="plate-card">
+              <div class="plate-year">2026</div>
+              <div class="plate-title">MERCEDES-AMG PETRONAS F1 TEAM</div>
+              <div class="plate-desc">Rookie Formula One World Championship season. Pairing exceptional racecraft with cutting-edge ground-effect machinery.</div>
+            </div>
+            <div class="plate-meta">FORMULA ONE / ROOKIE YEAR</div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-plate-row">
+            <div class="plate-meta">TESTING OF PREVIOUS CARS (TPC)</div>
+            <div class="plate-card">
+              <div class="plate-year">2025</div>
+              <div class="plate-title">MERCEDES F1 RESERVE &amp; TPC PROGRAM</div>
+              <div class="plate-desc">Extensive Formula 1 testing program across Silverstone, Imola, Red Bull Ring, and Monza. Simulator integration.</div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-plate-row">
+            <div class="plate-card">
+              <div class="plate-year">2024</div>
+              <div class="plate-title">FIA FORMULA 2 CHAMPIONSHIP</div>
+              <div class="plate-desc">Prema Racing. Multiple race victories including dominant wins at Silverstone sprint and the Hungaroring feature race.</div>
+            </div>
+            <div class="plate-meta">FORMULA 2 / PREMA RACING</div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-plate-row">
+            <div class="plate-meta">FRECA CHAMPION</div>
+            <div class="plate-card">
+              <div class="plate-year">2023</div>
+              <div class="plate-title">FORMULA REGIONAL EUROPEAN CHAMPIONSHIP</div>
+              <div class="plate-desc">Crowned Champion in debut season with Prema Racing. 5 victories, 11 podiums, demonstrating relentless pace in European competition.</div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="timeline-plate-row">
+            <div class="plate-card">
+              <div class="plate-year">2022</div>
+              <div class="plate-title">ITALIAN F4 &amp; ADAC F4 CHAMPIONSHIPS</div>
+              <div class="plate-desc">Historic double championship sweep: winning both the Italian and German Formula 4 titles in emphatic fashion.</div>
+            </div>
+            <div class="plate-meta">DOUBLE F4 CHAMPION</div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="timeline-plate-row">
+            <div class="plate-meta">EUROPEAN KARTING CHAMPION</div>
+            <div class="plate-card">
+              <div class="plate-year">2021</div>
+              <div class="plate-title">CIK-FIA EUROPEAN CHAMPIONSHIP</div>
+              <div class="plate-desc">OK Senior European Karting Champion. Back-to-back continental karting titles cementing status as a premier junior talent.</div>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="timeline-plate-row">
+            <div class="plate-card">
+              <div class="plate-year">2018</div>
+              <div class="plate-title">WSK CHAMPIONS CUP &amp; MINI KARTING</div>
+              <div class="plate-desc">National and international junior karting supremacy. Foundation of wheel-to-wheel racecraft and race management.</div>
+            </div>
+            <div class="plate-meta">GRASSROOTS ROOTS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /sticky-stack-container -->
+
+  <!-- ==========================================================================
+       BLOCK 4: FROM THE PADDOCK
+       ========================================================================== -->
+  <section data-paddock id="paddock-section">
+    <div class="paddock-inner">
+      <h2 class="paddock-masthead-h2">FROM THE PADDOCK.</h2>
+      
+      <p style="font-size: 1.15rem; line-height: 1.6; max-width: 48rem; color: #475569; margin-bottom: 2rem;">
+        DEEP-DIVE RACE TELEMETRY, TYRE DEGRADATION METRICS, STRATEGY REVIEWS, AND PIT-WALL DISPATCHES DIRECTLY FROM THE FORMULA ONE CALENDAR.
+      </p>
+
+      <a href="#report" class="profile-cta-btn" style="width: 14em;">
+        <svg class="profile-cta-svg" viewBox="0 0 220 50" preserveAspectRatio="none">
+          <path d="M220 42L212.932 50H0V0H220V42Z" fill="#0E0F14"/>
+          <path d="M205 49.5H213L219.5 42V36 M212 0.5H219.5V7 M8 0.5H0.5V7 M7.5 49.5H0.5V42.5" fill="none" stroke="#02D2E3"/>
+        </svg>
+        <span class="profile-cta-label">READ RACE REPORT</span>
+        <svg class="profile-cta-arrow" viewBox="0 0 13.7 10.7">
+          <path d="M0 5.35H13M8 10.35L13 5.35L8 0.35" stroke-width="1.5"/>
+        </svg>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="header-nav" role="navigation" aria-label="Main Navigation">
-        <a href="#profile" class="nav-link">ENGINEERING</a>
-        <a href="#journey" class="nav-link">JOURNEY</a>
-        <a href="#projects" class="nav-link">PROJECTS</a>
-        <a href="#achievements" class="nav-link">LEARNING</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
-      </nav>
+      <!-- 5-Round Calendar Strip -->
+      <div class="calendar-strip">
+        <div class="calendar-round-cell">
+          <span class="round-num">ROUND 01</span>
+          <span class="round-grand-prix">BAHRAIN GP</span>
+          <span class="round-track">BAHRAIN INT. CIRCUIT</span>
+        </div>
 
-      <!-- Telemetry Info Ticker & Audio Switch -->
-      <div class="header-telemetry-meta">
-        <button id="audio-toggle-btn" class="audio-toggle" type="button" aria-label="Toggle Telemetry Audio">
-          <span class="audio-wave-icon" aria-hidden="true">
-            <span></span><span></span><span></span>
+        <div class="calendar-round-cell">
+          <span class="round-num">ROUND 02</span>
+          <span class="round-grand-prix">SAUDI ARABIAN GP</span>
+          <span class="round-track">JEDDAH CORNICHE</span>
+        </div>
+
+        <div class="calendar-round-cell">
+          <span class="round-num">ROUND 03</span>
+          <span class="round-grand-prix">AUSTRALIAN GP</span>
+          <span class="round-track">ALBERT PARK, MELBOURNE</span>
+        </div>
+
+        <div class="calendar-round-cell live-round">
+          <span class="round-num" style="display:flex; justify-content:space-between;">
+            <span>ROUND 04</span>
+            <span style="color:#FF2A55;">● LIVE</span>
           </span>
-          <span id="audio-waves-indicator">AUDIO: MUTE</span>
-        </button>
-
-        <div class="header-clock-wrap">
-          <span class="clock-pulse" aria-hidden="true"></span>
-          <span id="telemetry-clock">00:00:00 IST</span>
+          <span class="round-grand-prix">JAPANESE GP</span>
+          <span class="round-track">SUZUKA INT. RACING COURSE</span>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" class="mobile-toggle" type="button" aria-label="Toggle Mobile Navigation Menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="calendar-round-cell">
+          <span class="round-num">ROUND 05</span>
+          <span class="round-grand-prix">CHINESE GP</span>
+          <span class="round-track">SHANGHAI INT. CIRCUIT</span>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Mobile Drawer Menu -->
-  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
-    <nav class="mobile-nav-list">
-      <a href="#hero" class="mobile-nav-link">01 // HERO &rarr;</a>
-      <a href="#profile" class="mobile-nav-link">02 // THE ENGINEERING PROFILE &rarr;</a>
-      <a href="#journey" class="mobile-nav-link">03 // THE JOURNEY &rarr;</a>
-      <a href="#projects" class="mobile-nav-link">04 // SELECTED PROJECTS &rarr;</a>
-      <a href="#achievements" class="mobile-nav-link">05 // ALWAYS IN PROGRESS &rarr;</a>
-      <a href="#contact" class="mobile-nav-link">06 // TRANSMISSION UPLINK &rarr;</a>
-    </nav>
-    <div class="mobile-drawer-footer">
-      <span>UDIT PRATAP SINGH // CSE B.TECH 2025–2029</span>
-      <span>NIET / DR. A.P.J. ABDUL KALAM TECHNICAL UNIVERSITY</span>
-    </div>
-  </div>
+  <!-- ==========================================================================
+       BLOCK 5: KEEP PUSHING FORWARD (SIGNOFF)
+       ========================================================================== -->
+  <footer data-signoff id="signoff-section">
+    <div class="signoff-dark-panel">
+      <h2 class="signoff-h2">
+        KEEP PUSHING FORWARD. NEVER SETTLE FOR SECOND.
+      </h2>
 
-  <main id="main-content">
-
-    <!-- -------------------------------------------------------------
-     * SECTION 01: HERO
-     * ----------------------------------------------------------- -->
-    <section id="hero" class="hero-section" aria-label="Hero Section">
-      <!-- Aerodynamic Topographic Contour Canvas -->
-      <canvas id="hero-contour-canvas" class="hero-contour-canvas"></canvas>
-
-      <div class="container hero-grid">
-        <!-- Left Content -->
-        <div class="hero-content-col">
-          <div class="hero-telemetry-badge">
-            <span class="bracket">[</span> IDENTIFIER: DEVELOPER_001 <span class="bracket">]</span>
-          </div>
-
-          <h1 class="hero-main-title">
-            UDIT PRATAP <span class="title-accent">SINGH</span>
-          </h1>
-
-          <div class="hero-subtitle">
-            BUILDING SOFTWARE. EXPLORING INTELLIGENCE.
-          </div>
-
-          <p class="hero-bio-lead">
-            Computer Science Engineering student at NIET (AKTU), focused on building reliable software systems, exploring deep learning architectures, and engineering high-precision digital experiences. Driven by algorithmic curiosity and production-grade craftsmanship.
-          </p>
-
-          <!-- Telemetry Specs Indicator -->
-          <div class="hero-telemetry-specs">
-            <div class="spec-cell">
-              <span class="spec-label">LOCATION</span>
-              <span class="spec-value">INDIA (NCR / LKO)</span>
-            </div>
-            <div class="spec-cell">
-              <span class="spec-label">EDUCATION</span>
-              <span class="spec-value">B.TECH CSE | 2025–2029</span>
-            </div>
-            <div class="spec-cell">
-              <span class="spec-label">CURRENT EVALUATION</span>
-              <span class="spec-value">8.20 CGPA (AKTU)</span>
-            </div>
-          </div>
-
-          <!-- CTAs -->
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn-primary-telemetry">
-              <span class="bracket">[</span> VIEW PROJECTS <span class="bracket">]</span>
-            </a>
-            <button type="button" class="btn-secondary-telemetry btn-open-resume">
-              <span class="bracket">[</span> INSPECT RESUME <span class="bracket">]</span>
-            </button>
-          </div>
-
-          <!-- Direct Uplinks -->
-          <div class="hero-uplinks">
-            <span class="uplink-label">DATA UPLINKS:</span>
-            <div class="uplink-links">
-              <a href="https://github.com/uditdev0523" target="_blank" rel="noopener noreferrer" class="uplink-item">
-                GITHUB &rarr;
-              </a>
-              <a href="https://www.linkedin.com/in/udit-pratap-singh-8913b030a/" target="_blank" rel="noopener noreferrer" class="uplink-item">
-                LINKEDIN &rarr;
-              </a>
-              <a href="https://uditdev0523.github.io/Portfolio-website-/" target="_blank" rel="noopener noreferrer" class="uplink-item">
-                LEGACY V1 &rarr;
-              </a>
-            </div>
-          </div>
+      <div class="signoff-footer-row">
+        <div class="legal-copy">
+          <div>&copy; 2026 GRIDO1 RACING SYSTEMS // MERCEDES-AMG PETRONAS F1 TEAM</div>
+          <div style="margin-top: 0.25rem;">DESIGNED &amp; BUILT FOR HIGH-VELOCITY AERODYNAMICS. ALL RIGHTS RESERVED.</div>
         </div>
 
-        <!-- Right Stage: Portrait Graphic with HUD Brackets -->
-        <div class="hero-portrait-stage">
-          <div class="portrait-frame">
-            <div class="frame-corner-tl"></div>
-            <div class="frame-corner-tr"></div>
-            <div class="frame-corner-bl"></div>
-            <div class="frame-corner-br"></div>
-
-            <img src="assets/images/hero-portrait.svg" alt="Udit Pratap Singh — Engineering Portrait and Telemetry HUD" class="portrait-img" width="800" height="1000">
-
-            <div class="portrait-caption-tag">
-              STATUS: NOMINAL // ALL SYSTEMS GO
-            </div>
-          </div>
+        <div class="footer-nav-col">
+          <a href="#hero">TOP &uarr;</a>
+          <a href="#season">SEASON</a>
+          <a href="#timeline">CAREER</a>
+          <a href="#paddock">PADDOCK</a>
+          <a href="#privacy">PRIVACY</a>
         </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------------
-     * SECTION 02: THE ENGINEERING PROFILE (DARK TELEMETRY)
-     * ----------------------------------------------------------- -->
-    <section id="profile" class="section-dark" aria-label="The Engineering Profile">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-identifier">// SECTION 02 — TELEMETRY COCKPIT</span>
-          <h2 class="section-title">THE ENGINEERING PROFILE.</h2>
-          <p class="section-lead">
-            A verified audit of technical competencies, separating established hands-on skills from tools in active academic pursuit. No fabricated percentages—only calibrated engineering capabilities.
-          </p>
-        </div>
-
-        <!-- Telemetry Dashboard Grid -->
-        <div class="telemetry-dashboard-grid">
-
-          <!-- Card 1: Programming Languages -->
-          <div class="dashboard-card">
-            <div class="card-header-bar">
-              <h3 class="card-header-title">PROGRAMMING</h3>
-              <span class="card-code">SYS.01 // LANG</span>
-            </div>
-            <div class="skill-list">
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">C</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 85%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Python</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 88%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">JavaScript (ES6+)</span>
-                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 72%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Frontend Engineering -->
-          <div class="dashboard-card">
-            <div class="card-header-bar">
-              <h3 class="card-header-title">FRONTEND</h3>
-              <span class="card-code">SYS.02 // UI.UX</span>
-            </div>
-            <div class="skill-list">
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">HTML5</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 92%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">CSS3 &amp; Modern Layouts</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 90%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Responsive Web Design</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 94%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: AI & Data Science -->
-          <div class="dashboard-card">
-            <div class="card-header-bar">
-              <h3 class="card-header-title">AI &amp; DATA SCIENCE</h3>
-              <span class="card-code">SYS.03 // NEURAL</span>
-            </div>
-            <div class="skill-list">
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Machine Learning</span>
-                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 70%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Deep Learning &amp; Neural Nets</span>
-                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line learning-bar" style="width: 62%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">PyTorch</span>
-                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line learning-bar" style="width: 60%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Computer Vision &amp; OpenCV</span>
-                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 68%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: Tools & Platforms -->
-          <div class="dashboard-card">
-            <div class="card-header-bar">
-              <h3 class="card-header-title">TOOLS &amp; PLATFORMS</h3>
-              <span class="card-code">SYS.04 // CLOUD</span>
-            </div>
-            <div class="skill-list">
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Git &amp; GitHub</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 86%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">FastAPI &amp; REST APIs</span>
-                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 74%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">SQLite &amp; Relational DBs</span>
-                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line" style="width: 80%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-info">
-                  <span class="skill-name">Docker &amp; Microsoft Azure</span>
-                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
-                </div>
-                <div class="skill-telemetry-bar">
-                  <div class="skill-progress-line learning-bar" style="width: 55%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Verified Achievements Counter Row -->
-        <div class="telemetry-specs-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
-          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">VERIFIED ACADEMIC EVALUATION</span>
-            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--accent-cyan);" data-counter-target="8.20" data-counter-decimals="2">0.00</span>
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">CGPA / 10.0 (AKTU B.TECH)</span>
-          </div>
-
-          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">ENGINEERING TENURE</span>
-            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--white);" data-counter-target="2029" data-counter-prefix="2025–">2025–2029</span>
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">4-YEAR B.TECH DEGREE PROGRAM</span>
-          </div>
-
-          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">CORE SYSTEM ARCHITECTURES</span>
-            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--accent-cyan);" data-counter-target="5">0</span>
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">ENGINEERED &amp; DOCUMENTED</span>
-          </div>
-
-          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">DATA TRANSPARENCY</span>
-            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--white);" data-counter-target="100" data-counter-suffix="%">0%</span>
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">VERIFIED PUBLIC AUDITABILITY</span>
-          </div>
-        </div>
-
-        <!-- Honesty Banner -->
-        <div class="telemetry-honesty-banner">
-          <div class="honesty-text">
-            <strong>HONEST ENGINEERING DISCLOSURE:</strong> All ratings represent evaluated proficiency tiers rather than arbitrary percentages. Technologies tagged as <em>ACTIVE STUDY</em> reflect active coursework, tutorials, and prototype implementations currently in flight.
-          </div>
-          <div class="honesty-pill">
-            INTEGRITY VERIFIED // [OK]
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------------
-     * SECTION 03: THE JOURNEY (VERTICAL TIMELINE)
-     * ----------------------------------------------------------- -->
-    <section id="journey" class="section-light" aria-label="The Journey">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-identifier" style="color: #0F766E;">// SECTION 03 — TRAJECTORY</span>
-          <h2 class="section-title">FROM LEARNING TO BUILDING.</h2>
-          <p class="section-lead" style="color: #475569;">
-            The academic trajectory, hands-on development milestones, and collaborative technology initiatives shaping my path in computer science and artificial intelligence.
-          </p>
-        </div>
-
-        <!-- Timeline Track -->
-        <div class="timeline-track-wrap">
-          <div class="timeline-central-axis"></div>
-
-          <!-- Event 01: B.Tech CSE Education -->
-          <div class="timeline-event">
-            <div class="timeline-node node-active"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge-row">
-                <span class="timeline-year-tag">2025 – 2029</span>
-                <span class="timeline-type-tag">ACADEMIC FOUNDATION</span>
-              </div>
-              <h3 class="timeline-heading">B.TECH IN COMPUTER SCIENCE &amp; ENGINEERING</h3>
-              <div class="timeline-subheading">
-                NIET (Noida Institute of Engineering &amp; Technology) | Dr. A.P.J. Abdul Kalam Technical University (AKTU)
-              </div>
-              <p class="timeline-description">
-                Engaged in rigorous undergraduate study covering Data Structures &amp; Algorithms, Computer Architecture, Object-Oriented Programming, and discrete mathematical foundations. Current evaluated academic score: <strong>8.20 CGPA</strong> across foundational coursework.
-              </p>
-              <div class="timeline-specs-chips">
-                <span class="spec-chip">C / C++</span>
-                <span class="spec-chip">Data Structures</span>
-                <span class="spec-chip">Computer Architecture</span>
-                <span class="spec-chip">Calculus &amp; Linear Algebra</span>
-                <span class="spec-chip">8.20 CGPA</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 02: Innovation Interaction EKUME Club -->
-          <div class="timeline-event">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge-row">
-                <span class="timeline-year-tag">2025–2026</span>
-                <span class="timeline-type-tag">COLLEGE CLUB &amp; INNOVATION</span>
-              </div>
-              <h3 class="timeline-heading">INNOVATION INTERACTION // EKUME CLUB, NIET</h3>
-              <div class="timeline-subheading">
-                Active Member &amp; Technical Contributor | NIET Campus
-              </div>
-              <p class="timeline-description">
-                Participated in student-led innovation sessions, collaborative problem-solving workshops, and technical discussions exploring emerging technology trends, open-source practices, and hackathon ideation.
-              </p>
-              <div class="timeline-specs-chips">
-                <span class="spec-chip">Peer Programming</span>
-                <span class="spec-chip">Technical Ideation</span>
-                <span class="spec-chip">Innovation Workshops</span>
-                <span class="spec-chip">Hackathon Prep</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 03: InAmigos Foundation -->
-          <div class="timeline-event">
-            <div class="timeline-node"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge-row">
-                <span class="timeline-year-tag">2024–2025</span>
-                <span class="timeline-type-tag">COMMUNITY OUTREACH &amp; VOLUNTEERING</span>
-              </div>
-              <h3 class="timeline-heading">INAMIGOS FOUNDATION (IAF)</h3>
-              <div class="timeline-subheading">
-                Social Welfare &amp; Technical Volunteer | Digital Outreach
-              </div>
-              <p class="timeline-description">
-                Contributed to youth empowerment, social welfare campaigns, and digital communication efforts with the Section 8 non-profit foundation, assisting team leads in web presence coordination and public awareness campaigns.
-              </p>
-              <div class="timeline-specs-chips">
-                <span class="spec-chip">Digital Outreach</span>
-                <span class="spec-chip">Community Empowerment</span>
-                <span class="spec-chip">Team Coordination</span>
-                <span class="spec-chip">Web Assistance</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 04: Software & AI Systems -->
-          <div class="timeline-event">
-            <div class="timeline-node node-active"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge-row">
-                <span class="timeline-year-tag">PRESENT</span>
-                <span class="timeline-type-tag">SPECIALIZED ENGINEERING FOCUS</span>
-              </div>
-              <h3 class="timeline-heading">AI, COMPUTER VISION &amp; CLOUD SYSTEMS PURSUIT</h3>
-              <div class="timeline-subheading">
-                Independent Research &amp; System Prototyping
-              </div>
-              <p class="timeline-description">
-                Architecting end-to-end applications: from explainable medical vision systems (NetraSetu) and telematics hubs (Smart Fleet) to voice forensics and high-velocity web experiences. Rigorous commitment to clean code, reproducible experiments, and open-source transparency.
-              </p>
-              <div class="timeline-specs-chips">
-                <span class="spec-chip">PyTorch Deep Learning</span>
-                <span class="spec-chip">OpenCV Fundus Forensics</span>
-                <span class="spec-chip">FastAPI Microservices</span>
-                <span class="spec-chip">Git Versioning</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------------
-     * SECTION 04: SELECTED PROJECTS (BUILT WITH PURPOSE)
-     * ----------------------------------------------------------- -->
-    <section id="projects" class="section-dark" aria-label="Selected Projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-identifier">// SECTION 04 — SYSTEM REPOSITORIES</span>
-          <h2 class="section-title">BUILT WITH PURPOSE.</h2>
-          <p class="section-lead">
-            Featured software architectures, machine learning research prototypes, and interactive frontend deployments. Click any project to inspect its deep telemetry diagnostics and architecture specs.
-          </p>
-        </div>
-
-        <!-- Filter Controls -->
-        <div class="projects-filter-bar">
-          <button type="button" class="project-filter-btn filter-active" data-filter="all">ALL SYSTEMS [5]</button>
-          <button type="button" class="project-filter-btn" data-filter="ai">AI &amp; VISION [2]</button>
-          <button type="button" class="project-filter-btn" data-filter="systems">SYSTEMS &amp; IOT [2]</button>
-          <button type="button" class="project-filter-btn" data-filter="frontend">WEB &amp; UI [1]</button>
-        </div>
-
-        <!-- Dynamic Projects Grid (Populated via JS) -->
-        <div id="projects-grid" class="projects-grid">
-          <!-- Dynamically populated via assets/js/projects-data.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------------
-     * SECTION 05: ACHIEVEMENTS & LEARNING (ALWAYS IN PROGRESS)
-     * ----------------------------------------------------------- -->
-    <section id="achievements" class="section-light" aria-label="Achievements and Learning">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-identifier" style="color: #0F766E;">// SECTION 05 — VERIFIED MILESTONES</span>
-          <h2 class="section-title">ALWAYS IN PROGRESS.</h2>
-          <p class="section-lead" style="color: #475569;">
-            Tracking continuous learning, verified course completions, and active engineering development tracks without inflated metrics or fabricated rankings.
-          </p>
-        </div>
-
-        <!-- Achievement Pillars -->
-        <div class="achievements-grid">
-          <div class="achievement-card">
-            <div class="achievement-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-            </div>
-            <h3 class="achievement-title">ACADEMIC EXCELLENCE</h3>
-            <p class="achievement-desc">
-              Consistent performance in undergraduate Computer Science Engineering with an evaluated <strong>8.20 CGPA</strong>, focusing on foundational programming, discrete structures, and systems engineering.
-            </p>
-          </div>
-
-          <div class="achievement-card">
-            <div class="achievement-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            </div>
-            <h3 class="achievement-title">OPEN SOURCE DISPATCH</h3>
-            <p class="achievement-desc">
-              Active maintenance of public codebases on GitHub, including the <strong>Smart Fleet Telematics</strong> system, frontend web showcases, and academic record computation algorithms.
-            </p>
-          </div>
-
-          <div class="achievement-card">
-            <div class="achievement-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <h3 class="achievement-title">COMMUNITY COLLABORATION</h3>
-            <p class="achievement-desc">
-              Active engagement in <strong>EKUME Club, NIET</strong> and community digital outreach with <strong>InAmigos Foundation</strong>, bridging engineering principles with real-world social impact.
-            </p>
-          </div>
-        </div>
-
-        <!-- Dedicated Certifications & Learning Matrix Area -->
-        <div class="certifications-container">
-          <h3 class="cert-table-header">CERTIFICATIONS &amp; LEARNING AUDIT</h3>
-          
-          <div class="cert-feed-list">
-            <!-- Cert 1 -->
-            <div class="cert-feed-item">
-              <div class="cert-info-col">
-                <span class="cert-name">PROGRAMMING IN C &amp; DATA STRUCTURES</span>
-                <span class="cert-issuer">AKTU University Curriculum &amp; Academic Evaluation</span>
-              </div>
-              <span class="cert-status-badge badge-verified-cert">COMPLETED &amp; EVALUATED (8.20 GPA)</span>
-            </div>
-
-            <!-- Cert 2 -->
-            <div class="cert-feed-item">
-              <div class="cert-info-col">
-                <span class="cert-name">PYTHON FOR APPLIED DATA SCIENCE &amp; AUTOMATION</span>
-                <span class="cert-issuer">Self-Directed Engineering &amp; Project Implementation</span>
-              </div>
-              <span class="cert-status-badge badge-verified-cert">VERIFIED WITH WORKING CODEBASES</span>
-            </div>
-
-            <!-- Cert 3 -->
-            <div class="cert-feed-item">
-              <div class="cert-info-col">
-                <span class="cert-name">DEEP LEARNING WITH PYTORCH &amp; COMPUTER VISION</span>
-                <span class="cert-issuer">Active Academic Specialization &amp; Research Track</span>
-              </div>
-              <span class="cert-status-badge badge-active-study">CURRENTLY IN PROGRESS</span>
-            </div>
-
-            <!-- Cert 4 -->
-            <div class="cert-feed-item">
-              <div class="cert-info-col">
-                <span class="cert-name">CLOUD ESSENTIALS &amp; MICROSERVICES (DOCKER / AZURE)</span>
-                <span class="cert-issuer">Modern Systems Deployment Track</span>
-              </div>
-              <span class="cert-status-badge badge-active-study">CURRENTLY IN PROGRESS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- -------------------------------------------------------------
-     * SECTION 06: CONTACT / TELEMETRY TRANSMISSION CONSOLE
-     * ----------------------------------------------------------- -->
-    <section id="contact" class="section-dark" aria-label="Contact Section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-identifier">// SECTION 06 — SATELLITE UPLINK</span>
-          <h2 class="section-title">LET'S BUILD SOMETHING MEANINGFUL.</h2>
-          <p class="section-lead">
-            Whether you have an internship opportunity, engineering collaboration, AI research challenge, or want to discuss high-performance software systems—my transmission channel is open.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <!-- Left: Verified Contact Information & Resume Action -->
-          <div class="contact-meta-card">
-            <div class="contact-meta-item">
-              <span class="meta-label">DIRECT EMAIL UPLINK (PRIMARY)</span>
-              <div class="copy-email-box">
-                <span class="email-string">uditpratapsingh014@gmail.com</span>
-                <button type="button" id="copy-email-btn" class="btn-copy-email">
-                  [ COPY ]
-                </button>
-                <span id="copy-email-feedback" class="copy-feedback-msg">[COPIED]</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted-dark); margin-top: 0.35rem;">
-                SECONDARY ALIAS: uditdev0523@gmail.com
-              </div>
-            </div>
-
-            <div class="contact-meta-item">
-              <span class="meta-label">PRIMARY GEOGRAPHIC BASE</span>
-              <div class="meta-value-text">LUCKNOW / NOIDA, UP, INDIA</div>
-            </div>
-
-            <div class="contact-meta-item">
-              <span class="meta-label">PROFESSIONAL NETWORKS</span>
-              <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
-                <a href="https://www.linkedin.com/in/udit-pratap-singh-8913b030a/" target="_blank" rel="noopener noreferrer" class="link-icon" style="width: auto; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
-                  LINKEDIN PROFILE &rarr;
-                </a>
-                <a href="https://github.com/uditdev0523" target="_blank" rel="noopener noreferrer" class="link-icon" style="width: auto; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
-                  GITHUB PROFILE &rarr;
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-meta-item" style="margin-bottom: 0;">
-              <span class="meta-label">DOCUMENTATION DISPATCH</span>
-              <button type="button" class="btn-secondary-telemetry btn-open-resume" style="width: 100%; justify-content: center; border-color: var(--accent-cyan); color: var(--accent-cyan); margin-top: 0.5rem;">
-                <span class="bracket">[</span> OPEN CURRICULUM VITAE <span class="bracket">]</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Right: Functional Telemetry Transmission Form -->
-          <div class="telemetry-form-box">
-            <form id="telemetry-contact-form" novalidate>
-              <div class="form-group-row">
-                <div class="form-field">
-                  <label for="sender-name">SENDER NAME *</label>
-                  <input type="text" id="sender-name" name="name" placeholder="E.g. Sarah Connor" required autocomplete="name">
-                </div>
-                <div class="form-field">
-                  <label for="sender-email">SENDER EMAIL *</label>
-                  <input type="email" id="sender-email" name="email" placeholder="name@domain.com" required autocomplete="email">
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="sender-subject">TRANSMISSION SUBJECT</label>
-                <input type="text" id="sender-subject" name="subject" placeholder="Project Inquiry / Engineering Role / Collaboration">
-              </div>
-
-              <div class="form-field">
-                <label for="sender-message">DISPATCH MESSAGE *</label>
-                <textarea id="sender-message" name="message" rows="4" placeholder="Detail your project requirements, timeline, or engineering inquiry..." required></textarea>
-              </div>
-
-              <div id="form-transmission-status" class="form-status" role="alert"></div>
-
-              <button type="submit" class="btn-transmit">
-                TRANSMIT DISPATCH &rarr;
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- -------------------------------------------------------------
-   * FOOTER
-   * ----------------------------------------------------------- -->
-  <footer class="telemetry-footer" role="contentinfo">
-    <div class="container footer-row">
-      <div>
-        <div class="footer-copy">&copy; 2026 UDIT PRATAP SINGH</div>
-        <div class="footer-tagline">DESIGNED WITH CURIOSITY. BUILT WITH CODE.</div>
-      </div>
-
-      <div class="footer-telemetry-badge">
-        SYS_STATUS: 100% OPERATIONAL // NOIDA_28.47N / 77.50E // LATENCY: 12ms
       </div>
     </div>
   </footer>
 
-  <!-- -------------------------------------------------------------
-   * MODAL 1: PROJECT DEEP-DIVE TELEMETRY INSPECTOR
-   * ----------------------------------------------------------- -->
-  <div id="project-modal-backdrop" class="telemetry-modal-backdrop" role="dialog" aria-modal="true" aria-label="Project Details Modal">
-    <div class="telemetry-modal-stage">
-      <button type="button" id="modal-close-btn" class="modal-close-trigger" aria-label="Close Project Modal">
-        [ CLOSE &times; ]
-      </button>
-      <div id="project-modal-content" class="modal-body-pad">
-        <!-- Dynamically injected via assets/js/app.js -->
-      </div>
-    </div>
-  </div>
+  <!-- ==========================================================================
+       INLINE ES MODULE SCRIPT: MOTION ENGINE, THREE.JS, SPRING, TICKER & SCENE
+       ========================================================================== -->
+  <script type="module">
+    import * as THREE from 'three';
+    import Lenis from 'lenis';
 
-  <!-- -------------------------------------------------------------
-   * MODAL 2: INTERACTIVE PRINTABLE RESUME VIEWER
-   * ----------------------------------------------------------- -->
-  <div id="resume-modal-backdrop" class="telemetry-modal-backdrop" role="dialog" aria-modal="true" aria-label="Resume Document Modal">
-    <div class="telemetry-modal-stage resume-modal-sheet">
-      <div class="resume-modal-controls">
-        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;">
-          CURRICULUM VITAE // UDIT PRATAP SINGH
-        </span>
-        <div style="display: flex; gap: 0.5rem;">
-          <button type="button" id="btn-print-resume" class="btn-print-action">
-            [ PRINT / SAVE PDF ]
-          </button>
-          <button type="button" id="resume-modal-close-btn" class="modal-close-trigger" style="position: static;">
-            [ CLOSE &times; ]
-          </button>
-        </div>
-      </div>
+    // 0. Manual Scroll Restoration & Scroll Top on Load
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
 
-      <div class="resume-paper">
-        <!-- Resume Header -->
-        <div class="resume-header">
-          <div>
-            <h1 class="resume-name">UDIT PRATAP SINGH</h1>
-            <div class="resume-title">COMPUTER SCIENCE ENGINEERING STUDENT | SOFTWARE DEVELOPER</div>
-            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">
-              Location: Lucknow / Noida, Uttar Pradesh, India
-            </div>
-          </div>
-          <div class="resume-contact-col">
-            <span>Email: uditdev0523@gmail.com</span>
-            <span>GitHub: github.com/uditdev0523</span>
-            <span>LinkedIn: linkedin.com/in/udit-pratap-singh-8913b030a</span>
-            <span>Status: B.Tech CSE (2025–2029)</span>
-          </div>
-        </div>
+    /* -------------------------------------------------------------
+     * 1. SHARED REFERENCE-COUNTED TICKER
+     * ----------------------------------------------------------- */
+    class Ticker {
+      constructor() {
+        this.subscribers = new Map();
+        this.rafId = null;
+        this.lastTime = performance.now();
+      }
 
-        <!-- Professional Summary -->
-        <div class="resume-section-title">PROFESSIONAL SUMMARY</div>
-        <p class="resume-entry-desc" style="margin-bottom: 1.25rem;">
-          Computer Science Engineering student at Noida Institute of Engineering &amp; Technology (AKTU) with a current evaluated academic score of 8.20 CGPA. Dedicated to software engineering, deep learning architectures, computer vision, and cloud microservices. Proven project delivery across real-time IoT telematics dashboards, explainable healthcare AI prototypes, and fluid responsive web experiences.
-        </p>
+      subscribe(fn, getInterval = () => 0) {
+        const id = Symbol();
+        this.subscribers.set(id, { fn, getInterval, lastRun: 0 });
+        if (this.subscribers.size === 1) {
+          this.start();
+        }
+        return () => this.unsubscribe(id);
+      }
 
-        <!-- Education -->
-        <div class="resume-section-title">EDUCATION</div>
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>NOIDA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (NIET) / AKTU</span>
-            <span>2025 – 2029</span>
-          </div>
-          <div class="resume-entry-sub">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</div>
-          <p class="resume-entry-desc">
-            Evaluated Cumulative Score: <strong>8.20 CGPA</strong>. Core subjects: Data Structures &amp; Algorithms, Object-Oriented Programming, Discrete Mathematics, Computer Organization.
-          </p>
-        </div>
+      unsubscribe(id) {
+        this.subscribers.delete(id);
+        if (this.subscribers.size === 0) {
+          this.stop();
+        }
+      }
 
-        <!-- Technical Skills -->
-        <div class="resume-section-title">TECHNICAL SKILLS</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; margin-bottom: 1.25rem;">
-          <div><strong>Languages:</strong> C, Python, JavaScript (ES6+), SQL</div>
-          <div><strong>AI &amp; Vision:</strong> Machine Learning, PyTorch, OpenCV, Grad-CAM</div>
-          <div><strong>Web &amp; Backend:</strong> HTML5, CSS3, Responsive Design, FastAPI</div>
-          <div><strong>Tools &amp; Cloud:</strong> Git, GitHub, SQLite, Docker, Microsoft Azure</div>
-        </div>
+      start() {
+        const loop = (now) => {
+          this.rafId = requestAnimationFrame(loop);
+          for (const sub of this.subscribers.values()) {
+            const interval = sub.getInterval();
+            if (interval === 0 || now - sub.lastRun >= interval) {
+              sub.fn(now);
+              sub.lastRun = now;
+            }
+          }
+        };
+        this.rafId = requestAnimationFrame(loop);
+      }
 
-        <!-- Key Projects -->
-        <div class="resume-section-title">SELECTED TECHNICAL PROJECTS</div>
-        
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>NETRASETU — Explainable AI for Diabetic Retinopathy</span>
-            <span>2025 – 2026</span>
-          </div>
-          <div class="resume-entry-sub">PyTorch, OpenCV, FastAPI, Grad-CAM Saliency</div>
-          <p class="resume-entry-desc">
-            Engineered an explainable computer vision triage pipeline that detects microaneurysms and exudates from retinal fundus scans with Grad-CAM heatmap overlays, generating automated referral flags for frontline rural clinics.
-          </p>
-        </div>
+      stop() {
+        if (this.rafId) {
+          cancelAnimationFrame(this.rafId);
+          this.rafId = null;
+        }
+      }
+    }
 
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>SMART FLEET MANAGEMENT &amp; VEHICLE MONITORING</span>
-            <span>2025</span>
-          </div>
-          <div class="resume-entry-sub">Python, FastAPI, SQLite, CAN-Bus Telematics, Leaflet</div>
-          <p class="resume-entry-desc">
-            Designed a centralized telematics dashboard with real-time GPS tracking, geofence ingress/egress triggers, simulated OBD-II sensor feeds (speed, RPM, diagnostics), and driver behavioral risk profiling.
-          </p>
-        </div>
+    const ticker = new Ticker();
 
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>VOICE CLONING FRAUD DETECTION SYSTEM</span>
-            <span>2025 – 2026</span>
-          </div>
-          <div class="resume-entry-sub">Python, PyTorch, Librosa, Spectral Forensics</div>
-          <p class="resume-entry-desc">
-            Implemented dual-domain acoustic forensics analyzing Mel-Frequency Cepstral Coefficients (MFCC) and phase discontinuities to intercept synthetic neural vocoder clones in banking voice verification workflows.
-          </p>
-        </div>
+    /* -------------------------------------------------------------
+     * 2. LENIS SMOOTH SCROLL INTEGRATION
+     * ----------------------------------------------------------- */
+    let lenis = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reducedMotion) {
+      try {
+        lenis = new Lenis({ smoothWheel: true });
+        ticker.subscribe((time) => lenis.raf(time), () => 0);
+      } catch (e) {
+        console.warn('Lenis could not be started, fallback to native scroll', e);
+      }
+    }
 
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>BIKE RIDES — MOTORCYCLE WEB EXPERIENCE</span>
-            <span>2024</span>
-          </div>
-          <div class="resume-entry-sub">HTML5, CSS3, Vanilla JavaScript, GitHub Pages</div>
-          <p class="resume-entry-desc">
-            Architected and deployed a mobile-first, high-velocity responsive web application with 99/100 Lighthouse performance metrics, interactive vehicle specifications, and zero build dependencies.
-          </p>
-        </div>
+    /* -------------------------------------------------------------
+     * 3. REACT-SPRING DAMPED SOLVER IMPLEMENTATION
+     * ----------------------------------------------------------- */
+    class Spring {
+      constructor(config = { tension: 170, friction: 26, mass: 1 }, initial = 0) {
+        this.tension = config.tension || 170;
+        this.friction = config.friction || 26;
+        this.mass = config.mass || 1;
+        this.value = initial;
+        this.target = initial;
+        this.velocity = 0;
+        this.isAtRest = true;
+      }
 
-        <!-- Activities & Leadership -->
-        <div class="resume-section-title">CO-CURRICULAR &amp; LEADERSHIP</div>
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>EKUME CLUB, NIET — Active Member</span>
-            <span>2025 – 2026</span>
-          </div>
-          <p class="resume-entry-desc">
-            Collaborating in innovation interactions, peer algorithmic sessions, and technical hackathon prep rounds.
-          </p>
-        </div>
-        <div class="resume-entry">
-          <div class="resume-entry-header">
-            <span>INAMIGOS FOUNDATION (IAF) — Social &amp; Technical Volunteer</span>
-            <span>2024 – 2025</span>
-          </div>
-          <p class="resume-entry-desc">
-            Assisted community digital communications and social empowerment initiatives for non-profit outreach.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+      setTarget(target) {
+        this.target = target;
+        this.isAtRest = false;
+      }
 
-  <!-- Application Orchestration Script -->
-  <script type="module" src="assets/js/app.js"></script>
+      step(dtMs) {
+        if (this.isAtRest) return this.value;
+
+        const dtCap = Math.min(dtMs, 64);
+        const substep = 0.001; // 1ms
+        const steps = Math.floor(dtCap);
+
+        for (let i = 0; i < steps; i++) {
+          const fSpring = -this.tension * (this.value - this.target);
+          const fDamping = -this.friction * this.velocity;
+          const a = (fSpring + fDamping) / this.mass;
+          this.velocity += a * substep;
+          this.value += this.velocity * substep;
+        }
+
+        if (Math.abs(this.velocity) < 0.005 && Math.abs(this.target - this.value) < 0.005) {
+          this.value = this.target;
+          this.velocity = 0;
+          this.isAtRest = true;
+        }
+
+        return this.value;
+      }
+    }
+
+    /* -------------------------------------------------------------
+     * 4. STICKY STACK RECEDE SCROLL LISTENER
+     * ----------------------------------------------------------- */
+    function initStickyStack() {
+      const hero = document.getElementById('hero-section');
+      const season = document.getElementById('season-section');
+      const timeline = document.getElementById('timeline-section');
+      const heroInner = document.getElementById('hero-inner');
+      const heroShade = document.getElementById('hero-shade');
+      const seasonInner = document.getElementById('season-inner');
+      const seasonShade = document.getElementById('season-shade');
+
+      const RECEDE_SCALE = 0.9;
+      const RECEDE_SHADE = 0.55;
+      const phone = window.matchMedia('(max-width: 639px)');
+
+      const pinned = [
+        { inner: heroInner, shade: heroShade, next: season },
+        { inner: seasonInner, shade: seasonShade, next: timeline }
+      ];
+
+      function apply() {
+        const view = window.innerHeight || 1;
+        const shrink = phone.matches ? 0 : 1 - RECEDE_SCALE;
+
+        for (const { inner, shade, next } of pinned) {
+          if (!inner || !shade || !next) continue;
+          const rect = next.getBoundingClientRect();
+          const p = Math.min(1, Math.max(0, 1 - rect.top / view));
+
+          inner.style.transform = p > 0 && shrink > 0 ? `scale(${1 - shrink * p})` : '';
+          inner.style.willChange = p > 0 && shrink > 0 ? 'transform' : '';
+          shade.style.opacity = `${RECEDE_SHADE * p}`;
+          inner.style.visibility = p >= 1 ? 'hidden' : 'visible';
+        }
+      }
+
+      window.addEventListener('scroll', apply, { passive: true });
+      apply();
+    }
+
+    /* -------------------------------------------------------------
+     * 5. CHEQUERED DISSOLVE SEAM ENGINE
+     * ----------------------------------------------------------- */
+    function initChequeredDissolve(canvasId, carry = 'light') {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const CELL = 24;
+      const SOLID_UNTIL = 0.16;
+      const LIFT = 2;
+      const ACCENT_SHARE = 0.06;
+
+      function hashNoise(x, y) {
+        let h = Math.imul(x, 374761393) + Math.imul(y, 668265263);
+        h = Math.imul(h ^ (h >>> 13), 1274126177);
+        return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+      }
+
+      let width = 0, height = 0;
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      const surface = carry === 'light' ? '#f7fafb' : '#090a0b';
+      const accent = '#02d2e3';
+
+      function render(progress) {
+        ctx.clearRect(0, 0, width, height);
+        const cols = Math.ceil(width / CELL);
+        const rows = Math.ceil(height / CELL);
+        const lift = progress * LIFT;
+
+        for (let y = 0; y < rows; y++) {
+          const depth = y / Math.max(1, rows - 1) + lift;
+          if (depth > 1) break;
+          const solid = depth <= SOLID_UNTIL;
+          const fade = Math.min(1, Math.max(0, 1 - (depth - SOLID_UNTIL) / (1 - SOLID_UNTIL)));
+          if (!solid && fade <= 0) break;
+
+          for (let x = 0; x < cols; x++) {
+            if (!solid) {
+              if ((x + y) % 2 !== 0) continue;
+              if (hashNoise(x, y) > fade) continue;
+            }
+            ctx.fillStyle = !solid && hashNoise(x + 101, y + 57) < ACCENT_SHARE ? accent : surface;
+            ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+          }
+        }
+      }
+
+      // Scroll Trigger scrub
+      window.addEventListener('scroll', () => {
+        const rect = canvas.getBoundingClientRect();
+        const vh = window.innerHeight;
+        // start top_bottom, end top_top
+        const p = Math.min(1, Math.max(0, 1 - rect.top / vh));
+        render(p);
+      }, { passive: true });
+
+      render(0);
+    }
+
+    /* -------------------------------------------------------------
+     * 6. ROTATING GLOBE MERIDIAN ANIMATION
+     * ----------------------------------------------------------- */
+    function initGlobeMeridian() {
+      const ellipse = document.getElementById('globe-meridian-ellipse');
+      if (!ellipse) return;
+      let turn = 0;
+      ticker.subscribe(() => {
+        turn += 0.015;
+        const rx = Math.max(0.5, Math.abs(Math.cos(turn)) * 18);
+        ellipse.setAttribute('rx', rx.toFixed(2));
+      });
+    }
+
+    /* -------------------------------------------------------------
+     * 7. TIMELINE RAIL SCROLL SCRUBBER
+     * ----------------------------------------------------------- */
+    function initTimelineRail() {
+      const timelineSec = document.getElementById('timeline-section');
+      const marker = document.getElementById('timeline-rail-marker');
+      if (!timelineSec || !marker) return;
+
+      window.addEventListener('scroll', () => {
+        const rect = timelineSec.getBoundingClientRect();
+        const h = rect.height - window.innerHeight;
+        if (h <= 0) return;
+        const p = Math.min(1, Math.max(0, -rect.top / h));
+        const yPx = p * (rect.height - 30);
+        const rotDeg = p * 5 * 360; // turns 5 times
+        marker.style.transform = `translate(-50%, ${yPx}px) rotate(${rotDeg}deg)`;
+      }, { passive: true });
+    }
+
+    /* -------------------------------------------------------------
+     * 8. THREE.JS PROCEDURAL HERO SCENE WITH PARALLAX & CONTOURS
+     * ----------------------------------------------------------- */
+    function initHeroScene() {
+      const canvas = document.getElementById('hero-scene-canvas');
+      if (!canvas) return;
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: false,
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setClearColor(0xf7fafb);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 50);
+      camera.position.set(0, 0.1, 6.5);
+
+      // Topographic Contour Backdrop Shader
+      const backdropVert = `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `;
+      const backdropFrag = `
+        uniform float uTime;
+        uniform vec2 uPointer;
+        varying vec2 vUv;
+
+        float field(vec2 p, float t) {
+          float f = sin(p.x * 1.00 + t * 0.60) * 0.50;
+          f += sin(p.y * 0.85 - t * 0.45) * 0.45;
+          f += sin((p.x + p.y) * 0.65 + t * 0.35) * 0.35;
+          f += sin((p.x - p.y) * 0.95 - t * 0.55) * 0.25;
+          return f * 0.5 + 0.5;
+        }
+
+        void main() {
+          vec2 p = (vUv - 0.5) * 4.0;
+          float t = uTime * 0.6;
+          p.x += sin(p.y * 0.8 + t * 0.7) * 0.35;
+          p.y += cos(p.x * 0.7 - t * 0.6) * 0.35;
+
+          float f = field(p, t) * 3.5;
+          float w = fwidth(f) * 1.5;
+          float line = 1.0 - smoothstep(0.0, max(w, 0.001), abs(fract(f) - 0.5));
+
+          vec3 bg = vec3(0.968, 0.980, 0.984); // #f7fafb
+          vec3 stroke = vec3(0.874, 0.898, 0.913); // #dfe5e9
+          vec3 col = mix(bg, stroke, line * 0.8);
+
+          // Pointer relight touch
+          float d = length(vUv - (uPointer * 0.5 + 0.5));
+          col += vec3(0.008, 0.823, 0.890) * exp(-d * 4.0) * 0.12;
+
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `;
+
+      const backdropMat = new THREE.ShaderMaterial({
+        vertexShader: backdropVert,
+        fragmentShader: backdropFrag,
+        uniforms: {
+          uTime: { value: 0 },
+          uPointer: { value: new THREE.Vector2() }
+        },
+        depthWrite: false
+      });
+
+      const backdropGeo = new THREE.PlaneGeometry(16, 10);
+      const backdropMesh = new THREE.Mesh(backdropGeo, backdropMat);
+      backdropMesh.position.z = -3;
+      scene.add(backdropMesh);
+
+      // Subject Group: Procedural Sculpted Driver Helmet & Wireframe
+      const subjectGroup = new THREE.Group();
+      subjectGroup.position.set(0, 0.42, 0);
+
+      // Helmet Shell
+      const helmetGeo = new THREE.SphereGeometry(1.3, 48, 36);
+      helmetGeo.scale(1.0, 1.15, 1.1);
+
+      const helmetMat = new THREE.MeshStandardMaterial({
+        color: 0x1b1d24,
+        metalness: 0.9,
+        roughness: 0.2,
+        wireframe: false
+      });
+      const helmetMesh = new THREE.Mesh(helmetGeo, helmetMat);
+      subjectGroup.add(helmetMesh);
+
+      // Visor
+      const visorGeo = new THREE.CylinderGeometry(1.22, 1.25, 0.6, 32, 1, false, 0.8, 1.54);
+      const visorMat = new THREE.MeshStandardMaterial({
+        color: 0x02d2e3,
+        metalness: 0.95,
+        roughness: 0.1,
+        transparent: true,
+        opacity: 0.85
+      });
+      const visorMesh = new THREE.Mesh(visorGeo, visorMat);
+      visorMesh.rotation.y = Math.PI * 0.45;
+      visorMesh.position.set(0, 0.15, 0.2);
+      subjectGroup.add(visorMesh);
+
+      // Scanning Wireframe Wave
+      const wireGeo = new THREE.WireframeGeometry(helmetGeo);
+      const wireMat = new THREE.LineBasicMaterial({
+        color: 0x02d2e3,
+        transparent: true,
+        opacity: 0.2
+      });
+      const wireMesh = new THREE.LineSegments(wireGeo, wireMat);
+      subjectGroup.add(wireMesh);
+
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0x02d2e3, 2.5);
+      dirLight.position.set(2, 4, 4);
+      scene.add(dirLight);
+
+      scene.add(subjectGroup);
+
+      // Pointer Interactivity
+      const pointer = { x: 0, y: 0 };
+      const smoothed = { x: 0, y: 0 };
+
+      window.addEventListener('mousemove', (e) => {
+        pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+        pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
+      }, { passive: true });
+
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        renderer.setSize(rect.width, rect.height, false);
+        camera.aspect = rect.width / rect.height;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      // Animate Loop
+      let startTime = performance.now();
+      ticker.subscribe((now) => {
+        const t = (now - startTime) / 1000;
+        backdropMat.uniforms.uTime.value = t;
+
+        // Pointer Lerp
+        smoothed.x += (pointer.x - smoothed.x) * 0.08;
+        smoothed.y += (pointer.y - smoothed.y) * 0.08;
+
+        backdropMat.uniforms.uPointer.value.set(smoothed.x, smoothed.y);
+
+        // Subject Pitch & Yaw (Swing: AmpX 2.5 deg, AmpY 2.1 deg)
+        const radX = (smoothed.y * 2.5 * Math.PI) / 180;
+        const radY = (smoothed.x * 2.1 * Math.PI) / 180;
+        subjectGroup.rotation.x = radX;
+        subjectGroup.rotation.y = radY;
+        subjectGroup.position.x = smoothed.x * 0.08;
+        subjectGroup.position.y = 0.42 - smoothed.y * 0.08;
+
+        // Wireframe pulse wave
+        wireMat.opacity = 0.12 + Math.sin(t * 2.5) * 0.1;
+
+        renderer.render(scene, camera);
+      });
+    }
+
+    /* -------------------------------------------------------------
+     * 9. CIRCUIT TRACE LAP & HALFTONE GENERATOR
+     * ----------------------------------------------------------- */
+    function initCircuitEngine() {
+      const traceCanvas = document.getElementById('season-trace-canvas');
+      const halftoneCanvas = document.getElementById('season-halftone-canvas');
+      if (!traceCanvas || !halftoneCanvas) return;
+
+      const tCtx = traceCanvas.getContext('2d');
+      const hCtx = halftoneCanvas.getContext('2d');
+
+      // Generate 8,004 Halftone Dots onto Offscreen Canvas
+      const offscreen = document.createElement('canvas');
+      offscreen.width = 2560;
+      offscreen.height = 1440;
+      const oCtx = offscreen.getContext('2d');
+
+      oCtx.fillStyle = '#7a7a7a';
+      const pitchX = 7.8, pitchY = 7.7;
+      for (let y = 16.64; y < 1440; y += pitchY * 2) {
+        for (let x = 5.0; x < 2560; x += pitchX * 2) {
+          // Cluster landmass around the central circuit coordinates
+          const dx = (x - 1280) / 700;
+          const dy = (y - 700) / 450;
+          if (dx * dx + dy * dy < 1.4 && Math.sin(x * 0.01) * Math.cos(y * 0.01) > -0.25) {
+            oCtx.beginPath();
+            oCtx.arc(x, y, 1.75, 0, Math.PI * 2);
+            oCtx.fill();
+          }
+        }
+      }
+      hCtx.drawImage(offscreen, 0, 0);
+
+      // Circuit Lap Geometry (Closed Ribbon Track Points)
+      const path = [
+        [457, 521], [430, 538], [390, 568], [340, 606], [311, 612],
+        [320, 584], [345, 533], [375, 485], [420, 438], [470, 378],
+        [530, 350], [600, 295], [680, 257], [780, 200], [880, 150],
+        [950, 115], [982, 122], [950, 160], [975, 195], [1020, 245],
+        [1050, 295], [1030, 318], [980, 275], [920, 283], [850, 303],
+        [800, 324], [790, 360], [805, 398], [880, 427], [930, 445],
+        [952, 475], [945, 510], [970, 540], [1015, 560], [1025, 580],
+        [980, 645], [920, 634], [860, 593], [820, 544], [800, 518],
+        [750, 480], [700, 466], [640, 485], [580, 508], [520, 525],
+        [498, 515], [470, 507], [457, 521]
+      ];
+
+      let lapProgress = 0;
+      let lapStarted = false;
+
+      // Start 6-second Lap when Season section arrives
+      const seasonSec = document.getElementById('season-section');
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !lapStarted) {
+          lapStarted = true;
+          let lapStart = performance.now();
+          const LAP_MS = 6000;
+
+          ticker.subscribe((now) => {
+            const elapsed = now - lapStart;
+            lapProgress = Math.min(1, elapsed / LAP_MS);
+            renderLap(lapProgress);
+          });
+        }
+      }, { threshold: 0.35 });
+      observer.observe(seasonSec);
+
+      function renderLap(p) {
+        tCtx.clearRect(0, 0, 1440, 800);
+        const count = Math.floor(p * (path.length - 1));
+        if (count < 1) return;
+
+        // Glowing additive bloom
+        tCtx.save();
+        tCtx.globalCompositeOperation = 'lighter';
+        tCtx.strokeStyle = 'rgba(2, 210, 227, 0.15)';
+        tCtx.lineWidth = 15;
+        tCtx.lineCap = 'round';
+        tCtx.lineJoin = 'round';
+        tCtx.beginPath();
+        tCtx.moveTo(path[0][0], path[0][1]);
+        for (let i = 1; i <= count; i++) tCtx.lineTo(path[i][0], path[i][1]);
+        tCtx.stroke();
+
+        // Hot Cyan Core
+        tCtx.strokeStyle = '#02d2e3';
+        tCtx.lineWidth = 5.9;
+        tCtx.stroke();
+
+        // Hot Tip Spark
+        const tip = path[count];
+        const spark = tCtx.createRadialGradient(tip[0], tip[1], 0, tip[0], tip[1], 16);
+        spark.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+        spark.addColorStop(0.4, 'rgba(2, 210, 227, 0.6)');
+        spark.addColorStop(1, 'rgba(2, 210, 227, 0)');
+        tCtx.fillStyle = spark;
+        tCtx.beginPath();
+        tCtx.arc(tip[0], tip[1], 16, 0, Math.PI * 2);
+        tCtx.fill();
+        tCtx.restore();
+      }
+    }
+
+    /* -------------------------------------------------------------
+     * 10. LOADING VEIL HANDOVER SEQUENCE
+     * ----------------------------------------------------------- */
+    function initLoadingVeil() {
+      const veil = document.getElementById('loading-veil');
+      const fill = document.getElementById('veil-progress-fill-elem');
+      const helmetFill = document.getElementById('veil-helmet-fill-elem');
+      if (!veil || !fill) return;
+
+      const progressSpring = new Spring({ tension: 170, friction: 26, mass: 1 }, 0);
+      progressSpring.setTarget(1.0);
+
+      let start = performance.now();
+      const interval = setInterval(() => {
+        const now = performance.now();
+        const p = progressSpring.step(16);
+        fill.style.transform = `scaleX(${p})`;
+        if (helmetFill) helmetFill.style.transform = `scaleY(${p})`;
+
+        if (p >= 0.99) {
+          clearInterval(interval);
+          setTimeout(() => {
+            veil.style.opacity = '0';
+            setTimeout(() => {
+              veil.style.display = 'none';
+            }, 500);
+          }, 350);
+        }
+      }, 16);
+    }
+
+    // Initialize all components
+    document.addEventListener('DOMContentLoaded', () => {
+      initStickyStack();
+      initChequeredDissolve('season-chequered-canvas', 'light');
+      initGlobeMeridian();
+      initTimelineRail();
+      initHeroScene();
+      initCircuitEngine();
+      initLoadingVeil();
+    });
+  </script>
 </body>
 </html>
-
