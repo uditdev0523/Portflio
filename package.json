@@ -1,0 +1,24 @@
+{
+  "name": "udit-pratap-singh-portfolio",
+  "version": "2.0.0",
+  "description": "Personal developer portfolio of Udit Pratap Singh — Computer Science Engineering Student | Software Developer | AI & Data Science Enthusiast",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "preview": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "udit-pratap-singh",
+    "computer-science",
+    "artificial-intelligence",
+    "kimi-racing-systems",
+    "telemetry",
+    "awwwards"
+  ],
+  "author": "Udit Pratap Singh <uditdev0523@gmail.com>",
+  "license": "MIT"
+}

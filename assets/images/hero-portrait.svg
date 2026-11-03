@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0F14" />
+      <stop offset="60%" stop-color="#141720" />
+      <stop offset="100%" stop-color="#090A0B" />
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#02D2E3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#02D2E3" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="portraitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#222834" />
+      <stop offset="60%" stop-color="#171A23" />
+      <stop offset="100%" stop-color="#0E0F14" />
+    </linearGradient>
+    <pattern id="telemetryGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#02D2E3" stroke-width="0.5" stroke-opacity="0.12" />
+      <circle cx="0" cy="0" r="1" fill="#02D2E3" fill-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#bgGrad)" />
+  <rect width="800" height="1000" fill="url(#telemetryGrid)" />
+
+  <!-- Diagonal Aerodynamic Streamlines -->
+  <g stroke="#02D2E3" stroke-opacity="0.18" stroke-width="1.2" fill="none">
+    <path d="M -100 200 C 200 220 500 150 900 280" />
+    <path d="M -100 260 C 250 280 550 200 900 350" />
+    <path d="M -100 340 C 300 360 600 270 900 440" />
+    <path d="M -100 800 C 350 750 650 820 900 780" stroke-dasharray="8 6" />
+  </g>
+
+  <!-- Technical Telemetry Bracket Framing -->
+  <g stroke="#DFE5E9" stroke-opacity="0.25" stroke-width="1.5" fill="none">
+    <!-- Top-left bracket -->
+    <path d="M 40 100 L 40 40 L 100 40" />
+    <!-- Top-right bracket -->
+    <path d="M 760 100 L 760 40 L 700 40" />
+    <!-- Bottom-left bracket -->
+    <path d="M 40 900 L 40 960 L 100 960" />
+    <!-- Bottom-right bracket -->
+    <path d="M 760 900 L 760 960 L 700 960" />
+  </g>
+
+  <!-- Telemetry Header Labels -->
+  <text x="40" y="30" font-family="'Space Grotesk', monospace" font-size="11" fill="#02D2E3" letter-spacing="3">ID // DEV_001.UPS</text>
+  <text x="760" y="30" text-anchor="end" font-family="'Space Grotesk', monospace" font-size="11" fill="#B6C1C8" letter-spacing="2">SYS.LOC: NOIDA_28.47N</text>
+
+  <!-- Silhouette / Stylized Portrait Graphic -->
+  <g transform="translate(100, 120)">
+    <!-- Aura glow -->
+    <circle cx="300" cy="380" r="260" fill="#02D2E3" fill-opacity="0.04" />
+
+    <!-- Shoulders & Torso -->
+    <path d="M 120 780 C 140 620 200 540 260 510 C 290 495 310 495 340 510 C 400 540 460 620 480 780 Z" fill="url(#portraitGrad)" stroke="#02D2E3" stroke-width="1.5" stroke-opacity="0.4" />
+    
+    <!-- Collar & Jacket telemetry lines -->
+    <path d="M 260 510 L 290 620 L 300 780" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.3" fill="none" />
+    <path d="M 340 510 L 310 620 L 300 780" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.3" fill="none" />
+    <path d="M 230 560 L 170 780" stroke="#DFE5E9" stroke-width="0.75" stroke-opacity="0.2" fill="none" />
+    <path d="M 370 560 L 430 780" stroke="#DFE5E9" stroke-width="0.75" stroke-opacity="0.2" fill="none" />
+
+    <!-- Neck -->
+    <rect x="270" y="420" width="60" height="90" rx="6" fill="#1B1D24" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.3" />
+
+    <!-- Head / Jawline -->
+    <path d="M 235 340 C 230 420 260 450 300 450 C 340 450 370 420 365 340 C 365 250 355 210 300 210 C 245 210 235 250 235 340 Z" fill="#202430" stroke="#02D2E3" stroke-width="1.5" />
+
+    <!-- Stylized Modern Hair -->
+    <path d="M 225 280 C 230 200 260 160 300 160 C 345 160 375 190 375 270 C 365 240 340 220 300 220 C 255 220 235 250 225 280 Z" fill="#0E0F14" stroke="#02D2E3" stroke-width="1" />
+
+    <!-- Glasses / Neural HUD Visor Accent -->
+    <g stroke="#02D2E3" stroke-width="2" fill="none">
+      <rect x="250" y="300" width="42" height="26" rx="4" fill="#0E0F14" fill-opacity="0.8" stroke="#02D2E3" />
+      <rect x="308" y="300" width="42" height="26" rx="4" fill="#0E0F14" fill-opacity="0.8" stroke="#02D2E3" />
+      <line x1="292" y1="312" x2="308" y2="312" stroke="#02D2E3" stroke-width="2"/>
+      <!-- HUD crosshair in left lens -->
+      <circle cx="271" cy="313" r="4" stroke="#02D2E3" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <line x1="264" y1="313" x2="278" y2="313" stroke="#02D2E3" stroke-width="0.8"/>
+      <line x1="271" y1="306" x2="271" y2="320" stroke="#02D2E3" stroke-width="0.8"/>
+    </g>
+
+    <!-- Facial Structure Accents -->
+    <path d="M 298 335 L 302 355 L 296 360" stroke="#DFE5E9" stroke-width="1.2" stroke-opacity="0.4" fill="none" />
+    <path d="M 285 385 C 295 390 305 390 315 385" stroke="#DFE5E9" stroke-width="1.5" stroke-opacity="0.5" fill="none" />
+  </g>
+
+  <!-- Biometric HUD & Calibration Circles -->
+  <g stroke="#02D2E3" stroke-opacity="0.4" fill="none">
+    <circle cx="400" cy="440" r="180" stroke-width="1" stroke-dasharray="4 6" />
+    <circle cx="400" cy="440" r="210" stroke-width="0.75" />
+    <!-- Reticle ticks -->
+    <line x1="180" y1="440" x2="200" y2="440" stroke-width="2"/>
+    <line x1="600" y1="440" x2="620" y2="440" stroke-width="2"/>
+    <line x1="400" y1="220" x2="400" y2="240" stroke-width="2"/>
+    <line x1="400" y1="640" x2="400" y2="660" stroke-width="2"/>
+  </g>
+
+  <!-- Technical Telemetry Cards floating -->
+  <g transform="translate(60, 680)">
+    <rect width="180" height="70" rx="0" fill="#1B1D24" fill-opacity="0.9" stroke="#02D2E3" stroke-width="1"/>
+    <path d="M 0 0 L 12 0 L 0 12 Z" fill="#02D2E3"/>
+    <text x="14" y="22" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3" letter-spacing="1.5">TELEMETRY // COGNITIVE</text>
+    <text x="14" y="42" font-family="'Oswald', sans-serif" font-weight="600" font-size="20" fill="#FFFFFF">B.TECH CSE</text>
+    <text x="14" y="58" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8">BATCH 2025 – 2029</text>
+  </g>
+
+  <g transform="translate(560, 240)">
+    <rect width="180" height="80" rx="0" fill="#1B1D24" fill-opacity="0.9" stroke="#DFE5E9" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="0" y="0" width="4" height="80" fill="#02D2E3" />
+    <text x="14" y="24" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3" letter-spacing="1.5">ACTIVE CORE</text>
+    <text x="14" y="46" font-family="'Oswald', sans-serif" font-weight="600" font-size="22" fill="#FFFFFF">AI &amp; VISION</text>
+    <text x="14" y="66" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8">PYTORCH // OPENCV</text>
+  </g>
+
+  <!-- Precision Horizon Pitch Ladder -->
+  <g transform="translate(620, 520)" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.6">
+    <line x1="0" y1="0" x2="30" y2="0" />
+    <line x1="30" y1="0" x2="30" y2="8" />
+    <text x="38" y="5" font-family="'Space Grotesk', monospace" font-size="8" fill="#02D2E3">+10°</text>
+
+    <line x1="0" y1="30" x2="50" y2="30" stroke-width="1.5" stroke-opacity="0.9"/>
+    <text x="58" y="34" font-family="'Space Grotesk', monospace" font-size="9" fill="#FFFFFF">0.0° REF</text>
+
+    <line x1="0" y1="60" x2="30" y2="60" />
+    <line x1="30" y1="60" x2="30" y2="-8" />
+    <text x="38" y="65" font-family="'Space Grotesk', monospace" font-size="8" fill="#02D2E3">-10°</text>
+  </g>
+
+  <!-- Bottom Telemetry Banner -->
+  <line x1="40" y1="920" x2="760" y2="920" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.3" />
+  <text x="40" y="945" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="2">AKTU // NOIDA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</text>
+  <text x="760" y="945" text-anchor="end" font-family="'Oswald', sans-serif" font-size="13" font-weight="600" fill="#02D2E3" letter-spacing="2">STATUS: SYSTEM READY</text>
+</svg>

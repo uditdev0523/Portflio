@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Udit Pratap Singh | Computer Science Engineering</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #F7FAFB;
+      color: #090A0B;
+      line-height: 1.5;
+      padding: 2.5rem 1rem;
+    }
+    .resume-sheet {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #DFE5E9;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .print-bar {
+      max-width: 840px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-print {
+      background: #090A0B;
+      color: #FFFFFF;
+      padding: 0.6rem 1.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-print:hover { background: #02D2E3; color: #090A0B; }
+    .header {
+      border-bottom: 2px solid #090A0B;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .name { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; line-height: 1; }
+    .title { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: #0F766E; text-transform: uppercase; margin-top: 0.4rem; }
+    .contact { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #475569; display: flex; flex-direction: column; gap: 0.2rem; text-align: right; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #DFE5E9; padding-bottom: 0.35rem; margin-bottom: 0.85rem; margin-top: 1.5rem; }
+    .entry { margin-bottom: 1rem; }
+    .entry-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; }
+    .entry-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #64748B; margin-bottom: 0.35rem; }
+    .entry-desc { font-size: 0.88rem; color: #334155; line-height: 1.55; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; }
+    @media print {
+      body { background: #FFF; padding: 0; }
+      .print-bar { display: none; }
+      .resume-sheet { border: none; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #64748B;">DOCUMENT: UDIT_PRATAP_SINGH_RESUME.PDF</span>
+    <button class="btn-print" onclick="window.print()">[ PRINT / SAVE AS PDF ]</button>
+  </div>
+
+  <div class="resume-sheet">
+    <div class="header">
+      <div>
+        <h1 class="name">UDIT PRATAP SINGH</h1>
+        <div class="title">Computer Science Engineering Student | Software Developer</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">
+          Lucknow / Noida, Uttar Pradesh, India
+        </div>
+      </div>
+      <div class="contact">
+        <span>Email: uditdev0523@gmail.com</span>
+        <span>GitHub: github.com/uditdev0523</span>
+        <span>LinkedIn: linkedin.com/in/udit-pratap-singh-8913b030a</span>
+        <span>Status: B.Tech CSE (2025–2029)</span>
+      </div>
+    </div>
+
+    <div class="section-title">PROFESSIONAL SUMMARY</div>
+    <p class="entry-desc" style="margin-bottom: 1.25rem;">
+      Computer Science Engineering student at Noida Institute of Engineering &amp; Technology (AKTU) with an evaluated 8.20 CGPA. Dedicated to software engineering, deep learning architectures, computer vision, and cloud microservices. Proven project delivery across real-time IoT telematics dashboards, explainable healthcare AI prototypes, and fluid responsive web experiences.
+    </p>
+
+    <div class="section-title">EDUCATION</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span>NOIDA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (NIET) / AKTU</span>
+        <span>2025 – 2029</span>
+      </div>
+      <div class="entry-sub">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</div>
+      <p class="entry-desc">
+        Evaluated Academic Score: <strong>8.20 CGPA</strong>. Core subjects: Data Structures &amp; Algorithms, Object-Oriented Programming, Discrete Mathematics, Computer Architecture.
+      </p>
+    </div>
+
+    <div class="section-title">TECHNICAL SKILLS</div>
+    <div class="skills-grid" style="margin-bottom: 1.25rem;">
+      <div><strong>Languages:</strong> C, Python, JavaScript (ES6+), SQL</div>
+      <div><strong>AI &amp; Vision:</strong> Machine Learning, PyTorch, OpenCV, Grad-CAM</div>
+      <div><strong>Web &amp; Backend:</strong> HTML5, CSS3, Responsive Design, FastAPI</div>
+      <div><strong>Tools &amp; Cloud:</strong> Git, GitHub, SQLite, Docker, Microsoft Azure</div>
+    </div>
+
+    <div class="section-title">SELECTED TECHNICAL PROJECTS</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span>NETRASETU — Explainable AI for Diabetic Retinopathy</span>
+        <span>2025 – 2026</span>
+      </div>
+      <div class="entry-sub">PyTorch, OpenCV, FastAPI, Grad-CAM Saliency</div>
+      <p class="entry-desc">
+        Engineered an explainable computer vision triage pipeline that detects microaneurysms and exudates from retinal fundus scans with Grad-CAM heatmap overlays, generating automated referral flags for frontline rural clinics.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span>SMART FLEET MANAGEMENT &amp; VEHICLE MONITORING</span>
+        <span>2025</span>
+      </div>
+      <div class="entry-sub">Python, FastAPI, SQLite, CAN-Bus Telematics, Leaflet</div>
+      <p class="entry-desc">
+        Designed a centralized telematics dashboard with real-time GPS tracking, geofence ingress/egress triggers, simulated OBD-II sensor feeds (speed, RPM, diagnostics), and driver behavioral risk profiling.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span>VOICE CLONING FRAUD DETECTION SYSTEM</span>
+        <span>2025 – 2026</span>
+      </div>
+      <div class="entry-sub">Python, PyTorch, Librosa, Spectral Forensics</div>
+      <p class="entry-desc">
+        Implemented dual-domain acoustic forensics analyzing Mel-Frequency Cepstral Coefficients (MFCC) and phase discontinuities to intercept synthetic neural vocoder clones in banking voice verification workflows.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span>BIKE RIDES — MOTORCYCLE WEB EXPERIENCE</span>
+        <span>2024</span>
+      </div>
+      <div class="entry-sub">HTML5, CSS3, Vanilla JavaScript, GitHub Pages</div>
+      <p class="entry-desc">
+        Architected and deployed a mobile-first, high-velocity responsive web application with 99/100 Lighthouse performance metrics, interactive vehicle specifications, and zero build dependencies.
+      </p>
+    </div>
+
+    <div class="section-title">CO-CURRICULAR &amp; LEADERSHIP</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span>EKUME CLUB, NIET — Active Member</span>
+        <span>2025 – 2026</span>
+      </div>
+      <p class="entry-desc">
+        Collaborating in innovation interactions, peer algorithmic sessions, and technical hackathon prep rounds.
+      </p>
+    </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span>INAMIGOS FOUNDATION (IAF) — Social &amp; Technical Volunteer</span>
+        <span>2024 – 2025</span>
+      </div>
+      <p class="entry-desc">
+        Assisted community digital communications and social empowerment initiatives for non-profit outreach.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

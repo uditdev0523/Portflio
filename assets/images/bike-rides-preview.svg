@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <pattern id="speedGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#02D2E3" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+    <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#02D2E3" stop-opacity="0.0"/>
+      <stop offset="60%" stop-color="#02D2E3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1.0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="#0E0F14" />
+  <rect width="1200" height="750" fill="url(#speedGrid)" />
+
+  <!-- Top System Telemetry Bar -->
+  <g transform="translate(40, 30)">
+    <rect width="1120" height="45" fill="#141720" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="12" fill="#02D2E3" font-weight="700" letter-spacing="2">BIKE RIDES // HIGH VELOCITY RESPONSIVE WEB EXPERIENCE</text>
+    <text x="760" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#B6C1C8">GITHUB PAGES LIVE DEPLOYMENT</text>
+    <circle cx="1080" cy="23" r="5" fill="#02D2E3" />
+    <text x="1050" y="27" font-family="'Space Grotesk', monospace" font-size="10" fill="#02D2E3" text-anchor="end">PRODUCTION LIVE</text>
+  </g>
+
+  <!-- Left Side: Motorcycle Chassis Geometry & Wind-tunnel Aerodynamics -->
+  <g transform="translate(40, 100)">
+    <rect width="680" height="580" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.15" stroke-width="1" />
+    
+    <!-- Wind tunnel streamlines -->
+    <g stroke="url(#speedGrad)" stroke-width="1.8" fill="none" opacity="0.6">
+      <path d="M 0 160 C 200 160 320 220 680 180" />
+      <path d="M 0 220 C 180 220 300 280 680 230" />
+      <path d="M 0 310 C 240 310 380 340 680 320" />
+      <path d="M 0 420 C 160 420 300 480 680 440" />
+      <path d="M 0 500 C 200 500 350 510 680 490" stroke-dasharray="8 6"/>
+    </g>
+
+    <!-- Superbike Technical Wireframe Silhouette -->
+    <g transform="translate(110, 200)">
+      <!-- Rear Wheel -->
+      <circle cx="80" cy="240" r="75" fill="none" stroke="#252C3D" stroke-width="14" />
+      <circle cx="80" cy="240" r="55" fill="none" stroke="#02D2E3" stroke-width="1.5" stroke-dasharray="4 6" />
+      <circle cx="80" cy="240" r="15" fill="#1B1D24" stroke="#02D2E3" stroke-width="2" />
+
+      <!-- Front Wheel -->
+      <circle cx="390" cy="240" r="75" fill="none" stroke="#252C3D" stroke-width="14" />
+      <circle cx="390" cy="240" r="55" fill="none" stroke="#02D2E3" stroke-width="1.5" stroke-dasharray="4 6" />
+      <circle cx="390" cy="240" r="15" fill="#1B1D24" stroke="#02D2E3" stroke-width="2" />
+
+      <!-- Swingarm & Frame Trellis -->
+      <g stroke="#02D2E3" stroke-width="2" fill="none">
+        <line x1="80" y1="240" x2="200" y2="200" stroke-width="4"/>
+        <line x1="200" y1="200" x2="240" y2="120" stroke-width="3"/>
+        <line x1="200" y1="200" x2="290" y2="170" stroke-width="3"/>
+        <line x1="240" y1="120" x2="310" y2="90" stroke-width="3"/>
+        <line x1="290" y1="170" x2="310" y2="90" stroke-width="3"/>
+        
+        <!-- Front Inverted Fork -->
+        <line x1="390" y1="240" x2="330" y2="60" stroke-width="5" stroke="#DFE5E9"/>
+        <line x1="330" y1="60" x2="310" y2="50" stroke-width="3"/>
+      </g>
+
+      <!-- Fuel Tank & Fairing Silhouette -->
+      <path d="M 170 140 C 200 110 240 100 290 100 C 330 100 360 80 370 110 C 340 140 300 160 250 170 C 200 170 180 150 170 140 Z" fill="#1B1D24" stroke="#02D2E3" stroke-width="2"/>
+      <!-- Tail section -->
+      <path d="M 120 120 L 190 140 L 170 170 L 110 135 Z" fill="#1B1D24" stroke="#02D2E3" stroke-width="1.5"/>
+
+      <!-- Exhaust Pipe Line -->
+      <path d="M 230 220 Q 180 250 130 220 L 70 200" stroke="#FFB300" stroke-width="3" fill="none"/>
+    </g>
+
+    <!-- Speed Telemetry Overlay -->
+    <g transform="translate(40, 480)">
+      <rect width="220" height="60" fill="#1B1D24" stroke="#02D2E3" stroke-width="1" />
+      <text x="14" y="22" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">VELOCITY SIMULATION</text>
+      <text x="14" y="48" font-family="'Oswald', sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">299 KM/H</text>
+    </g>
+
+    <text x="40" y="560" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8">MOTORCYCLE-THEMED UI/UX EXPERIMENT // IMMERSIVE RESPONSIVE ENGINE</text>
+  </g>
+
+  <!-- Right Side: Frontend UI/UX Architecture & Browser Preview Simulation -->
+  <g transform="translate(745, 100)">
+    <rect width="415" height="580" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.15" stroke-width="1" />
+    <rect width="415" height="34" fill="#1B1D24" />
+    <text x="18" y="22" font-family="'Space Grotesk', monospace" font-size="11" fill="#02D2E3" font-weight="700">BROWSER VIEWPORT SIMULATION</text>
+
+    <!-- Simulated Browser Frame -->
+    <g transform="translate(20, 50)">
+      <rect width="375" height="250" fill="#090A0B" stroke="#02D2E3" stroke-width="1" rx="4" />
+      
+      <!-- Browser Top Bar -->
+      <rect width="375" height="24" fill="#1B1D24" rx="4" />
+      <circle cx="15" cy="12" r="3" fill="#FF2A55" />
+      <circle cx="27" cy="12" r="3" fill="#FFB300" />
+      <circle cx="39" cy="12" r="3" fill="#02D2E3" />
+      <rect x="60" y="5" width="250" height="14" fill="#090A0B" rx="3" />
+      <text x="70" y="15" font-family="'Space Grotesk', monospace" font-size="7" fill="#B6C1C8">uditdev0523.github.io/Bike-Rides-/</text>
+
+      <!-- Simulated Web Hero inside browser -->
+      <g transform="translate(20, 45)">
+        <text x="0" y="25" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">SPEED &amp; FREEDOM</text>
+        <text x="0" y="44" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">EXPLORE THE PASSION FOR TWO WHEELS</text>
+        
+        <!-- Simulated CTA button -->
+        <rect x="0" y="60" width="100" height="26" fill="#02D2E3" />
+        <text x="50" y="76" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" font-weight="700" fill="#090A0B">DISCOVER</text>
+
+        <!-- Simulated Bike cards in browser -->
+        <g transform="translate(0, 105)">
+          <rect x="0" y="0" width="100" height="65" fill="#1B1D24" stroke="#DFE5E9" stroke-opacity="0.2"/>
+          <text x="8" y="20" font-family="'Oswald', sans-serif" font-size="10" fill="#FFFFFF">SUPERSPORT</text>
+          
+          <rect x="115" y="0" width="100" height="65" fill="#1B1D24" stroke="#DFE5E9" stroke-opacity="0.2"/>
+          <text x="123" y="20" font-family="'Oswald', sans-serif" font-size="10" fill="#FFFFFF">CRUISER</text>
+
+          <rect x="230" y="0" width="100" height="65" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+          <text x="238" y="20" font-family="'Oswald', sans-serif" font-size="10" fill="#02D2E3">ADVENTURE</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Technical Implementation Details -->
+    <g transform="translate(20, 325)">
+      <text x="0" y="0" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">ENGINEERING HIGHLIGHTS</text>
+      
+      <g transform="translate(0, 15)" font-family="'Space Grotesk', monospace" font-size="9">
+        <text x="0" y="15" fill="#FFFFFF">• 100% Fluid Responsive Flexbox &amp; Grid CSS Architecture</text>
+        <text x="0" y="35" fill="#FFFFFF">• Semantic HTML5 Structuring with Mobile-first Viewport Scaling</text>
+        <text x="0" y="55" fill="#FFFFFF">• Vanilla JS Interaction Handlers for Carousel &amp; Smooth Navigation</text>
+        <text x="0" y="75" fill="#FFFFFF">• Deployed with Zero Build Overhead directly via GitHub Pages</text>
+      </g>
+
+      <!-- Technology Badges -->
+      <g transform="translate(0, 125)">
+        <rect x="0" y="0" width="70" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="35" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">HTML5</text>
+
+        <rect x="80" y="0" width="70" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="115" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">CSS3</text>
+
+        <rect x="160" y="0" width="95" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="207" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">JAVASCRIPT</text>
+
+        <rect x="265" y="0" width="105" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="317" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">GITHUB PAGES</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Outer Brackets -->
+  <g stroke="#02D2E3" stroke-width="2" fill="none">
+    <path d="M 20 50 L 20 20 L 50 20" />
+    <path d="M 1180 50 L 1180 20 L 1150 20" />
+    <path d="M 20 700 L 20 730 L 50 730" />
+    <path d="M 1180 700 L 1180 730 L 1150 730" />
+  </g>
+  <text x="20" y="14" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8" letter-spacing="2">PROJECT_04 // BIKE_RIDES_WEB_EXPERIENCE</text>
+</svg>

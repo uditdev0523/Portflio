@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Udit Pratap Singh — Engineering Portfolio | Computer Science &amp; AI Systems</title>
+  <meta name="description" content="Personal developer portfolio of Udit Pratap Singh — Computer Science Engineering Student, Software Developer, and AI &amp; Data Science Enthusiast (NIET / AKTU). Built with high-performance racing editorial art direction.">
+  <meta name="author" content="Udit Pratap Singh">
+  <meta name="keywords" content="Udit Pratap Singh, Computer Science, Software Developer, AI, Machine Learning, PyTorch, OpenCV, AKTU, NIET, Portfolio, KIMI, Telemetry">
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Udit Pratap Singh — Engineering Portfolio">
+  <meta property="og:description" content="Computer Science Engineering Student | Software Developer | AI &amp; Data Science Enthusiast. Inspired by racing telemetry and high-performance engineering.">
+  <meta property="og:url" content="https://uditdev0523.github.io/Portfolio-website-/">
+  <meta property="og:image" content="assets/images/hero-portrait.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0E0F14">
+
+  <!-- Favicon / Brand Symbol -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E0F14'/><path d='M8 6 L8 26 L24 26' stroke='%2302D2E3' stroke-width='4' fill='none'/><circle cx='20' cy='12' r='4' fill='%2302D2E3'/></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/telemetry.css">
+</head>
+
+<body class="is-loading">
+
+  <!-- 1. PRELOADER VEIL -->
+  <div id="telemetry-preloader" class="telemetry-preloader" aria-live="polite">
+    <div class="preloader-inner">
+      <div class="preloader-header">
+        <span class="preloader-title">SYSTEM BOOT // DEV_001.UPS</span>
+        <span id="loader-progress-text" class="preloader-progress-digit">0%</span>
+      </div>
+      <div class="preloader-bar-track">
+        <div id="loader-progress-bar" class="preloader-bar-fill"></div>
+      </div>
+      <div id="loader-log-feed" class="loader-feed">
+        <div class="loader-log-line">&gt; INITIALIZING KERNEL 24.14...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CUSTOM TELEMETRY RETICLE CURSOR -->
+  <div class="telemetry-cursor-ring" aria-hidden="true"></div>
+  <div class="telemetry-cursor-dot" aria-hidden="true"></div>
+
+  <!-- 3. FIXED TELEMETRY HEADER / NAVIGATION BAR -->
+  <header class="telemetry-header" role="banner">
+    <div class="container header-container">
+      <a href="#hero" class="header-brand" aria-label="Udit Pratap Singh Home">
+        <div class="header-logo-mark">U</div>
+        <div class="header-brand-info">
+          <span class="header-logo">UDIT PRATAP SINGH</span>
+          <span class="header-dev-id">DEVELOPER_001 // NCR_28.47N</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="header-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#profile" class="nav-link">ENGINEERING</a>
+        <a href="#journey" class="nav-link">JOURNEY</a>
+        <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#achievements" class="nav-link">LEARNING</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </nav>
+
+      <!-- Telemetry Info Ticker & Audio Switch -->
+      <div class="header-telemetry-meta">
+        <button id="audio-toggle-btn" class="audio-toggle" type="button" aria-label="Toggle Telemetry Audio">
+          <span class="audio-wave-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span id="audio-waves-indicator">AUDIO: MUTE</span>
+        </button>
+
+        <div class="header-clock-wrap">
+          <span class="clock-pulse" aria-hidden="true"></span>
+          <span id="telemetry-clock">00:00:00 IST</span>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="mobile-toggle" type="button" aria-label="Toggle Mobile Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <nav class="mobile-nav-list">
+      <a href="#hero" class="mobile-nav-link">01 // HERO &rarr;</a>
+      <a href="#profile" class="mobile-nav-link">02 // THE ENGINEERING PROFILE &rarr;</a>
+      <a href="#journey" class="mobile-nav-link">03 // THE JOURNEY &rarr;</a>
+      <a href="#projects" class="mobile-nav-link">04 // SELECTED PROJECTS &rarr;</a>
+      <a href="#achievements" class="mobile-nav-link">05 // ALWAYS IN PROGRESS &rarr;</a>
+      <a href="#contact" class="mobile-nav-link">06 // TRANSMISSION UPLINK &rarr;</a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span>UDIT PRATAP SINGH // CSE B.TECH 2025–2029</span>
+      <span>NIET / DR. A.P.J. ABDUL KALAM TECHNICAL UNIVERSITY</span>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- -------------------------------------------------------------
+     * SECTION 01: HERO
+     * ----------------------------------------------------------- -->
+    <section id="hero" class="hero-section" aria-label="Hero Section">
+      <!-- Aerodynamic Topographic Contour Canvas -->
+      <canvas id="hero-contour-canvas" class="hero-contour-canvas"></canvas>
+
+      <div class="container hero-grid">
+        <!-- Left Content -->
+        <div class="hero-content-col">
+          <div class="hero-telemetry-badge">
+            <span class="bracket">[</span> IDENTIFIER: DEVELOPER_001 <span class="bracket">]</span>
+          </div>
+
+          <h1 class="hero-main-title">
+            UDIT PRATAP <span class="title-accent">SINGH</span>
+          </h1>
+
+          <div class="hero-subtitle">
+            BUILDING SOFTWARE. EXPLORING INTELLIGENCE.
+          </div>
+
+          <p class="hero-bio-lead">
+            Computer Science Engineering student at NIET (AKTU), focused on building reliable software systems, exploring deep learning architectures, and engineering high-precision digital experiences. Driven by algorithmic curiosity and production-grade craftsmanship.
+          </p>
+
+          <!-- Telemetry Specs Indicator -->
+          <div class="hero-telemetry-specs">
+            <div class="spec-cell">
+              <span class="spec-label">LOCATION</span>
+              <span class="spec-value">INDIA (NCR / LKO)</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-label">EDUCATION</span>
+              <span class="spec-value">B.TECH CSE | 2025–2029</span>
+            </div>
+            <div class="spec-cell">
+              <span class="spec-label">CURRENT EVALUATION</span>
+              <span class="spec-value">8.20 CGPA (AKTU)</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary-telemetry">
+              <span class="bracket">[</span> VIEW PROJECTS <span class="bracket">]</span>
+            </a>
+            <button type="button" class="btn-secondary-telemetry btn-open-resume">
+              <span class="bracket">[</span> INSPECT RESUME <span class="bracket">]</span>
+            </button>
+          </div>
+
+          <!-- Direct Uplinks -->
+          <div class="hero-uplinks">
+            <span class="uplink-label">DATA UPLINKS:</span>
+            <div class="uplink-links">
+              <a href="https://github.com/uditdev0523" target="_blank" rel="noopener noreferrer" class="uplink-item">
+                GITHUB &rarr;
+              </a>
+              <a href="https://www.linkedin.com/in/udit-pratap-singh-8913b030a/" target="_blank" rel="noopener noreferrer" class="uplink-item">
+                LINKEDIN &rarr;
+              </a>
+              <a href="https://uditdev0523.github.io/Portfolio-website-/" target="_blank" rel="noopener noreferrer" class="uplink-item">
+                LEGACY V1 &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Stage: Portrait Graphic with HUD Brackets -->
+        <div class="hero-portrait-stage">
+          <div class="portrait-frame">
+            <div class="frame-corner-tl"></div>
+            <div class="frame-corner-tr"></div>
+            <div class="frame-corner-bl"></div>
+            <div class="frame-corner-br"></div>
+
+            <img src="assets/images/hero-portrait.svg" alt="Udit Pratap Singh — Engineering Portrait and Telemetry HUD" class="portrait-img" width="800" height="1000">
+
+            <div class="portrait-caption-tag">
+              STATUS: NOMINAL // ALL SYSTEMS GO
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+     * SECTION 02: THE ENGINEERING PROFILE (DARK TELEMETRY)
+     * ----------------------------------------------------------- -->
+    <section id="profile" class="section-dark" aria-label="The Engineering Profile">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-identifier">// SECTION 02 — TELEMETRY COCKPIT</span>
+          <h2 class="section-title">THE ENGINEERING PROFILE.</h2>
+          <p class="section-lead">
+            A verified audit of technical competencies, separating established hands-on skills from tools in active academic pursuit. No fabricated percentages—only calibrated engineering capabilities.
+          </p>
+        </div>
+
+        <!-- Telemetry Dashboard Grid -->
+        <div class="telemetry-dashboard-grid">
+
+          <!-- Card 1: Programming Languages -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h3 class="card-header-title">PROGRAMMING</h3>
+              <span class="card-code">SYS.01 // LANG</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">C</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript (ES6+)</span>
+                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 72%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Frontend Engineering -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h3 class="card-header-title">FRONTEND</h3>
+              <span class="card-code">SYS.02 // UI.UX</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">CSS3 &amp; Modern Layouts</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Responsive Web Design</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 94%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: AI & Data Science -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h3 class="card-header-title">AI &amp; DATA SCIENCE</h3>
+              <span class="card-code">SYS.03 // NEURAL</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Machine Learning</span>
+                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 70%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Deep Learning &amp; Neural Nets</span>
+                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line learning-bar" style="width: 62%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">PyTorch</span>
+                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line learning-bar" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Computer Vision &amp; OpenCV</span>
+                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 68%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Tools & Platforms -->
+          <div class="dashboard-card">
+            <div class="card-header-bar">
+              <h3 class="card-header-title">TOOLS &amp; PLATFORMS</h3>
+              <span class="card-code">SYS.04 // CLOUD</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Git &amp; GitHub</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">FastAPI &amp; REST APIs</span>
+                  <span class="skill-status-tag status-familiar">FAMILIAR</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 74%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">SQLite &amp; Relational DBs</span>
+                  <span class="skill-status-tag status-experienced">EXPERIENCED</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-info">
+                  <span class="skill-name">Docker &amp; Microsoft Azure</span>
+                  <span class="skill-status-tag status-learning">ACTIVE STUDY</span>
+                </div>
+                <div class="skill-telemetry-bar">
+                  <div class="skill-progress-line learning-bar" style="width: 55%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verified Achievements Counter Row -->
+        <div class="telemetry-specs-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">VERIFIED ACADEMIC EVALUATION</span>
+            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--accent-cyan);" data-counter-target="8.20" data-counter-decimals="2">0.00</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">CGPA / 10.0 (AKTU B.TECH)</span>
+          </div>
+
+          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">ENGINEERING TENURE</span>
+            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--white);" data-counter-target="2029" data-counter-prefix="2025–">2025–2029</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">4-YEAR B.TECH DEGREE PROGRAM</span>
+          </div>
+
+          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">CORE SYSTEM ARCHITECTURES</span>
+            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--accent-cyan);" data-counter-target="5">0</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">ENGINEERED &amp; DOCUMENTED</span>
+          </div>
+
+          <div class="spec-card" style="background-color: var(--surface-raised); border: 1px solid var(--border-dark); padding: 1.5rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted-text); display: block; margin-bottom: 0.35rem;">DATA TRANSPARENCY</span>
+            <span style="font-family: var(--font-heading); font-size: 2.75rem; font-weight: 700; color: var(--white);" data-counter-target="100" data-counter-suffix="%">0%</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-text); display: block; margin-top: 0.25rem;">VERIFIED PUBLIC AUDITABILITY</span>
+          </div>
+        </div>
+
+        <!-- Honesty Banner -->
+        <div class="telemetry-honesty-banner">
+          <div class="honesty-text">
+            <strong>HONEST ENGINEERING DISCLOSURE:</strong> All ratings represent evaluated proficiency tiers rather than arbitrary percentages. Technologies tagged as <em>ACTIVE STUDY</em> reflect active coursework, tutorials, and prototype implementations currently in flight.
+          </div>
+          <div class="honesty-pill">
+            INTEGRITY VERIFIED // [OK]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+     * SECTION 03: THE JOURNEY (VERTICAL TIMELINE)
+     * ----------------------------------------------------------- -->
+    <section id="journey" class="section-light" aria-label="The Journey">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-identifier" style="color: #0F766E;">// SECTION 03 — TRAJECTORY</span>
+          <h2 class="section-title">FROM LEARNING TO BUILDING.</h2>
+          <p class="section-lead" style="color: #475569;">
+            The academic trajectory, hands-on development milestones, and collaborative technology initiatives shaping my path in computer science and artificial intelligence.
+          </p>
+        </div>
+
+        <!-- Timeline Track -->
+        <div class="timeline-track-wrap">
+          <div class="timeline-central-axis"></div>
+
+          <!-- Event 01: B.Tech CSE Education -->
+          <div class="timeline-event">
+            <div class="timeline-node node-active"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge-row">
+                <span class="timeline-year-tag">2025 – 2029</span>
+                <span class="timeline-type-tag">ACADEMIC FOUNDATION</span>
+              </div>
+              <h3 class="timeline-heading">B.TECH IN COMPUTER SCIENCE &amp; ENGINEERING</h3>
+              <div class="timeline-subheading">
+                NIET (Noida Institute of Engineering &amp; Technology) | Dr. A.P.J. Abdul Kalam Technical University (AKTU)
+              </div>
+              <p class="timeline-description">
+                Engaged in rigorous undergraduate study covering Data Structures &amp; Algorithms, Computer Architecture, Object-Oriented Programming, and discrete mathematical foundations. Current evaluated academic score: <strong>8.20 CGPA</strong> across foundational coursework.
+              </p>
+              <div class="timeline-specs-chips">
+                <span class="spec-chip">C / C++</span>
+                <span class="spec-chip">Data Structures</span>
+                <span class="spec-chip">Computer Architecture</span>
+                <span class="spec-chip">Calculus &amp; Linear Algebra</span>
+                <span class="spec-chip">8.20 CGPA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 02: Innovation Interaction EKUME Club -->
+          <div class="timeline-event">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge-row">
+                <span class="timeline-year-tag">2025–2026</span>
+                <span class="timeline-type-tag">COLLEGE CLUB &amp; INNOVATION</span>
+              </div>
+              <h3 class="timeline-heading">INNOVATION INTERACTION // EKUME CLUB, NIET</h3>
+              <div class="timeline-subheading">
+                Active Member &amp; Technical Contributor | NIET Campus
+              </div>
+              <p class="timeline-description">
+                Participated in student-led innovation sessions, collaborative problem-solving workshops, and technical discussions exploring emerging technology trends, open-source practices, and hackathon ideation.
+              </p>
+              <div class="timeline-specs-chips">
+                <span class="spec-chip">Peer Programming</span>
+                <span class="spec-chip">Technical Ideation</span>
+                <span class="spec-chip">Innovation Workshops</span>
+                <span class="spec-chip">Hackathon Prep</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 03: InAmigos Foundation -->
+          <div class="timeline-event">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge-row">
+                <span class="timeline-year-tag">2024–2025</span>
+                <span class="timeline-type-tag">COMMUNITY OUTREACH &amp; VOLUNTEERING</span>
+              </div>
+              <h3 class="timeline-heading">INAMIGOS FOUNDATION (IAF)</h3>
+              <div class="timeline-subheading">
+                Social Welfare &amp; Technical Volunteer | Digital Outreach
+              </div>
+              <p class="timeline-description">
+                Contributed to youth empowerment, social welfare campaigns, and digital communication efforts with the Section 8 non-profit foundation, assisting team leads in web presence coordination and public awareness campaigns.
+              </p>
+              <div class="timeline-specs-chips">
+                <span class="spec-chip">Digital Outreach</span>
+                <span class="spec-chip">Community Empowerment</span>
+                <span class="spec-chip">Team Coordination</span>
+                <span class="spec-chip">Web Assistance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 04: Software & AI Systems -->
+          <div class="timeline-event">
+            <div class="timeline-node node-active"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge-row">
+                <span class="timeline-year-tag">PRESENT</span>
+                <span class="timeline-type-tag">SPECIALIZED ENGINEERING FOCUS</span>
+              </div>
+              <h3 class="timeline-heading">AI, COMPUTER VISION &amp; CLOUD SYSTEMS PURSUIT</h3>
+              <div class="timeline-subheading">
+                Independent Research &amp; System Prototyping
+              </div>
+              <p class="timeline-description">
+                Architecting end-to-end applications: from explainable medical vision systems (NetraSetu) and telematics hubs (Smart Fleet) to voice forensics and high-velocity web experiences. Rigorous commitment to clean code, reproducible experiments, and open-source transparency.
+              </p>
+              <div class="timeline-specs-chips">
+                <span class="spec-chip">PyTorch Deep Learning</span>
+                <span class="spec-chip">OpenCV Fundus Forensics</span>
+                <span class="spec-chip">FastAPI Microservices</span>
+                <span class="spec-chip">Git Versioning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+     * SECTION 04: SELECTED PROJECTS (BUILT WITH PURPOSE)
+     * ----------------------------------------------------------- -->
+    <section id="projects" class="section-dark" aria-label="Selected Projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-identifier">// SECTION 04 — SYSTEM REPOSITORIES</span>
+          <h2 class="section-title">BUILT WITH PURPOSE.</h2>
+          <p class="section-lead">
+            Featured software architectures, machine learning research prototypes, and interactive frontend deployments. Click any project to inspect its deep telemetry diagnostics and architecture specs.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="projects-filter-bar">
+          <button type="button" class="project-filter-btn filter-active" data-filter="all">ALL SYSTEMS [5]</button>
+          <button type="button" class="project-filter-btn" data-filter="ai">AI &amp; VISION [2]</button>
+          <button type="button" class="project-filter-btn" data-filter="systems">SYSTEMS &amp; IOT [2]</button>
+          <button type="button" class="project-filter-btn" data-filter="frontend">WEB &amp; UI [1]</button>
+        </div>
+
+        <!-- Dynamic Projects Grid (Populated via JS) -->
+        <div id="projects-grid" class="projects-grid">
+          <!-- Dynamically populated via assets/js/projects-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+     * SECTION 05: ACHIEVEMENTS & LEARNING (ALWAYS IN PROGRESS)
+     * ----------------------------------------------------------- -->
+    <section id="achievements" class="section-light" aria-label="Achievements and Learning">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-identifier" style="color: #0F766E;">// SECTION 05 — VERIFIED MILESTONES</span>
+          <h2 class="section-title">ALWAYS IN PROGRESS.</h2>
+          <p class="section-lead" style="color: #475569;">
+            Tracking continuous learning, verified course completions, and active engineering development tracks without inflated metrics or fabricated rankings.
+          </p>
+        </div>
+
+        <!-- Achievement Pillars -->
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            </div>
+            <h3 class="achievement-title">ACADEMIC EXCELLENCE</h3>
+            <p class="achievement-desc">
+              Consistent performance in undergraduate Computer Science Engineering with an evaluated <strong>8.20 CGPA</strong>, focusing on foundational programming, discrete structures, and systems engineering.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="achievement-title">OPEN SOURCE DISPATCH</h3>
+            <p class="achievement-desc">
+              Active maintenance of public codebases on GitHub, including the <strong>Smart Fleet Telematics</strong> system, frontend web showcases, and academic record computation algorithms.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3 class="achievement-title">COMMUNITY COLLABORATION</h3>
+            <p class="achievement-desc">
+              Active engagement in <strong>EKUME Club, NIET</strong> and community digital outreach with <strong>InAmigos Foundation</strong>, bridging engineering principles with real-world social impact.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dedicated Certifications & Learning Matrix Area -->
+        <div class="certifications-container">
+          <h3 class="cert-table-header">CERTIFICATIONS &amp; LEARNING AUDIT</h3>
+          
+          <div class="cert-feed-list">
+            <!-- Cert 1 -->
+            <div class="cert-feed-item">
+              <div class="cert-info-col">
+                <span class="cert-name">PROGRAMMING IN C &amp; DATA STRUCTURES</span>
+                <span class="cert-issuer">AKTU University Curriculum &amp; Academic Evaluation</span>
+              </div>
+              <span class="cert-status-badge badge-verified-cert">COMPLETED &amp; EVALUATED (8.20 GPA)</span>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="cert-feed-item">
+              <div class="cert-info-col">
+                <span class="cert-name">PYTHON FOR APPLIED DATA SCIENCE &amp; AUTOMATION</span>
+                <span class="cert-issuer">Self-Directed Engineering &amp; Project Implementation</span>
+              </div>
+              <span class="cert-status-badge badge-verified-cert">VERIFIED WITH WORKING CODEBASES</span>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="cert-feed-item">
+              <div class="cert-info-col">
+                <span class="cert-name">DEEP LEARNING WITH PYTORCH &amp; COMPUTER VISION</span>
+                <span class="cert-issuer">Active Academic Specialization &amp; Research Track</span>
+              </div>
+              <span class="cert-status-badge badge-active-study">CURRENTLY IN PROGRESS</span>
+            </div>
+
+            <!-- Cert 4 -->
+            <div class="cert-feed-item">
+              <div class="cert-info-col">
+                <span class="cert-name">CLOUD ESSENTIALS &amp; MICROSERVICES (DOCKER / AZURE)</span>
+                <span class="cert-issuer">Modern Systems Deployment Track</span>
+              </div>
+              <span class="cert-status-badge badge-active-study">CURRENTLY IN PROGRESS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+     * SECTION 06: CONTACT / TELEMETRY TRANSMISSION CONSOLE
+     * ----------------------------------------------------------- -->
+    <section id="contact" class="section-dark" aria-label="Contact Section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-identifier">// SECTION 06 — SATELLITE UPLINK</span>
+          <h2 class="section-title">LET'S BUILD SOMETHING MEANINGFUL.</h2>
+          <p class="section-lead">
+            Whether you have an internship opportunity, engineering collaboration, AI research challenge, or want to discuss high-performance software systems—my transmission channel is open.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Verified Contact Information & Resume Action -->
+          <div class="contact-meta-card">
+            <div class="contact-meta-item">
+              <span class="meta-label">DIRECT EMAIL UPLINK</span>
+              <div class="copy-email-box">
+                <span class="email-string">uditdev0523@gmail.com</span>
+                <button type="button" id="copy-email-btn" class="btn-copy-email">
+                  [ COPY ]
+                </button>
+                <span id="copy-email-feedback" class="copy-feedback-msg">[COPIED]</span>
+              </div>
+            </div>
+
+            <div class="contact-meta-item">
+              <span class="meta-label">PRIMARY GEOGRAPHIC BASE</span>
+              <div class="meta-value-text">LUCKNOW / NOIDA, UP, INDIA</div>
+            </div>
+
+            <div class="contact-meta-item">
+              <span class="meta-label">PROFESSIONAL NETWORKS</span>
+              <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                <a href="https://www.linkedin.com/in/udit-pratap-singh-8913b030a/" target="_blank" rel="noopener noreferrer" class="link-icon" style="width: auto; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
+                  LINKEDIN PROFILE &rarr;
+                </a>
+                <a href="https://github.com/uditdev0523" target="_blank" rel="noopener noreferrer" class="link-icon" style="width: auto; padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
+                  GITHUB PROFILE &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-meta-item" style="margin-bottom: 0;">
+              <span class="meta-label">DOCUMENTATION DISPATCH</span>
+              <button type="button" class="btn-secondary-telemetry btn-open-resume" style="width: 100%; justify-content: center; border-color: var(--accent-cyan); color: var(--accent-cyan); margin-top: 0.5rem;">
+                <span class="bracket">[</span> OPEN CURRICULUM VITAE <span class="bracket">]</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Functional Telemetry Transmission Form -->
+          <div class="telemetry-form-box">
+            <form id="telemetry-contact-form" novalidate>
+              <div class="form-group-row">
+                <div class="form-field">
+                  <label for="sender-name">SENDER NAME *</label>
+                  <input type="text" id="sender-name" name="name" placeholder="E.g. Sarah Connor" required autocomplete="name">
+                </div>
+                <div class="form-field">
+                  <label for="sender-email">SENDER EMAIL *</label>
+                  <input type="email" id="sender-email" name="email" placeholder="name@domain.com" required autocomplete="email">
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="sender-subject">TRANSMISSION SUBJECT</label>
+                <input type="text" id="sender-subject" name="subject" placeholder="Project Inquiry / Engineering Role / Collaboration">
+              </div>
+
+              <div class="form-field">
+                <label for="sender-message">DISPATCH MESSAGE *</label>
+                <textarea id="sender-message" name="message" rows="4" placeholder="Detail your project requirements, timeline, or engineering inquiry..." required></textarea>
+              </div>
+
+              <div id="form-transmission-status" class="form-status" role="alert"></div>
+
+              <button type="submit" class="btn-transmit">
+                TRANSMIT DISPATCH &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- -------------------------------------------------------------
+   * FOOTER
+   * ----------------------------------------------------------- -->
+  <footer class="telemetry-footer" role="contentinfo">
+    <div class="container footer-row">
+      <div>
+        <div class="footer-copy">&copy; 2026 UDIT PRATAP SINGH</div>
+        <div class="footer-tagline">DESIGNED WITH CURIOSITY. BUILT WITH CODE.</div>
+      </div>
+
+      <div class="footer-telemetry-badge">
+        SYS_STATUS: 100% OPERATIONAL // NOIDA_28.47N / 77.50E // LATENCY: 12ms
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+   * MODAL 1: PROJECT DEEP-DIVE TELEMETRY INSPECTOR
+   * ----------------------------------------------------------- -->
+  <div id="project-modal-backdrop" class="telemetry-modal-backdrop" role="dialog" aria-modal="true" aria-label="Project Details Modal">
+    <div class="telemetry-modal-stage">
+      <button type="button" id="modal-close-btn" class="modal-close-trigger" aria-label="Close Project Modal">
+        [ CLOSE &times; ]
+      </button>
+      <div id="project-modal-content" class="modal-body-pad">
+        <!-- Dynamically injected via assets/js/app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+   * MODAL 2: INTERACTIVE PRINTABLE RESUME VIEWER
+   * ----------------------------------------------------------- -->
+  <div id="resume-modal-backdrop" class="telemetry-modal-backdrop" role="dialog" aria-modal="true" aria-label="Resume Document Modal">
+    <div class="telemetry-modal-stage resume-modal-sheet">
+      <div class="resume-modal-controls">
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;">
+          CURRICULUM VITAE // UDIT PRATAP SINGH
+        </span>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" id="btn-print-resume" class="btn-print-action">
+            [ PRINT / SAVE PDF ]
+          </button>
+          <button type="button" id="resume-modal-close-btn" class="modal-close-trigger" style="position: static;">
+            [ CLOSE &times; ]
+          </button>
+        </div>
+      </div>
+
+      <div class="resume-paper">
+        <!-- Resume Header -->
+        <div class="resume-header">
+          <div>
+            <h1 class="resume-name">UDIT PRATAP SINGH</h1>
+            <div class="resume-title">COMPUTER SCIENCE ENGINEERING STUDENT | SOFTWARE DEVELOPER</div>
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">
+              Location: Lucknow / Noida, Uttar Pradesh, India
+            </div>
+          </div>
+          <div class="resume-contact-col">
+            <span>Email: uditdev0523@gmail.com</span>
+            <span>GitHub: github.com/uditdev0523</span>
+            <span>LinkedIn: linkedin.com/in/udit-pratap-singh-8913b030a</span>
+            <span>Status: B.Tech CSE (2025–2029)</span>
+          </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="resume-section-title">PROFESSIONAL SUMMARY</div>
+        <p class="resume-entry-desc" style="margin-bottom: 1.25rem;">
+          Computer Science Engineering student at Noida Institute of Engineering &amp; Technology (AKTU) with a current evaluated academic score of 8.20 CGPA. Dedicated to software engineering, deep learning architectures, computer vision, and cloud microservices. Proven project delivery across real-time IoT telematics dashboards, explainable healthcare AI prototypes, and fluid responsive web experiences.
+        </p>
+
+        <!-- Education -->
+        <div class="resume-section-title">EDUCATION</div>
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>NOIDA INSTITUTE OF ENGINEERING &amp; TECHNOLOGY (NIET) / AKTU</span>
+            <span>2025 – 2029</span>
+          </div>
+          <div class="resume-entry-sub">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</div>
+          <p class="resume-entry-desc">
+            Evaluated Cumulative Score: <strong>8.20 CGPA</strong>. Core subjects: Data Structures &amp; Algorithms, Object-Oriented Programming, Discrete Mathematics, Computer Organization.
+          </p>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="resume-section-title">TECHNICAL SKILLS</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; margin-bottom: 1.25rem;">
+          <div><strong>Languages:</strong> C, Python, JavaScript (ES6+), SQL</div>
+          <div><strong>AI &amp; Vision:</strong> Machine Learning, PyTorch, OpenCV, Grad-CAM</div>
+          <div><strong>Web &amp; Backend:</strong> HTML5, CSS3, Responsive Design, FastAPI</div>
+          <div><strong>Tools &amp; Cloud:</strong> Git, GitHub, SQLite, Docker, Microsoft Azure</div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="resume-section-title">SELECTED TECHNICAL PROJECTS</div>
+        
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>NETRASETU — Explainable AI for Diabetic Retinopathy</span>
+            <span>2025 – 2026</span>
+          </div>
+          <div class="resume-entry-sub">PyTorch, OpenCV, FastAPI, Grad-CAM Saliency</div>
+          <p class="resume-entry-desc">
+            Engineered an explainable computer vision triage pipeline that detects microaneurysms and exudates from retinal fundus scans with Grad-CAM heatmap overlays, generating automated referral flags for frontline rural clinics.
+          </p>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>SMART FLEET MANAGEMENT &amp; VEHICLE MONITORING</span>
+            <span>2025</span>
+          </div>
+          <div class="resume-entry-sub">Python, FastAPI, SQLite, CAN-Bus Telematics, Leaflet</div>
+          <p class="resume-entry-desc">
+            Designed a centralized telematics dashboard with real-time GPS tracking, geofence ingress/egress triggers, simulated OBD-II sensor feeds (speed, RPM, diagnostics), and driver behavioral risk profiling.
+          </p>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>VOICE CLONING FRAUD DETECTION SYSTEM</span>
+            <span>2025 – 2026</span>
+          </div>
+          <div class="resume-entry-sub">Python, PyTorch, Librosa, Spectral Forensics</div>
+          <p class="resume-entry-desc">
+            Implemented dual-domain acoustic forensics analyzing Mel-Frequency Cepstral Coefficients (MFCC) and phase discontinuities to intercept synthetic neural vocoder clones in banking voice verification workflows.
+          </p>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>BIKE RIDES — MOTORCYCLE WEB EXPERIENCE</span>
+            <span>2024</span>
+          </div>
+          <div class="resume-entry-sub">HTML5, CSS3, Vanilla JavaScript, GitHub Pages</div>
+          <p class="resume-entry-desc">
+            Architected and deployed a mobile-first, high-velocity responsive web application with 99/100 Lighthouse performance metrics, interactive vehicle specifications, and zero build dependencies.
+          </p>
+        </div>
+
+        <!-- Activities & Leadership -->
+        <div class="resume-section-title">CO-CURRICULAR &amp; LEADERSHIP</div>
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>EKUME CLUB, NIET — Active Member</span>
+            <span>2025 – 2026</span>
+          </div>
+          <p class="resume-entry-desc">
+            Collaborating in innovation interactions, peer algorithmic sessions, and technical hackathon prep rounds.
+          </p>
+        </div>
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <span>INAMIGOS FOUNDATION (IAF) — Social &amp; Technical Volunteer</span>
+            <span>2024 – 2025</span>
+          </div>
+          <p class="resume-entry-desc">
+            Assisted community digital communications and social empowerment initiatives for non-profit outreach.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Orchestration Script -->
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

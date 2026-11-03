@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <pattern id="fleetGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#02D2E3" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+    <linearGradient id="cyanLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#02D2E3" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#02D2E3" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#02D2E3" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="#0E0F14" />
+  <rect width="1200" height="750" fill="url(#fleetGrid)" />
+
+  <!-- Top System Telemetry Bar -->
+  <g transform="translate(40, 30)">
+    <rect width="1120" height="45" fill="#141720" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.4" />
+    <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="12" fill="#02D2E3" font-weight="700" letter-spacing="2">SMART FLEET MANAGEMENT // TELEMETRY HUB</text>
+    <text x="500" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#B6C1C8">ACTIVE UNITS: 14/14</text>
+    <text x="750" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#B6C1C8">OBD-II DATASTREAM: ACTIVE</text>
+    <circle cx="1080" cy="23" r="5" fill="#02D2E3" />
+    <text x="1050" y="27" font-family="'Space Grotesk', monospace" font-size="10" fill="#02D2E3" text-anchor="end">LIVE GPS</text>
+  </g>
+
+  <!-- Left Side: Live Vector Route Map -->
+  <g transform="translate(40, 100)">
+    <rect width="680" height="580" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.15" stroke-width="1" />
+    
+    <!-- Vector Map Grid / Roads -->
+    <g stroke="#1F2430" stroke-width="4" fill="none">
+      <path d="M 50 150 L 630 150" />
+      <path d="M 50 320 L 630 320" />
+      <path d="M 50 460 L 630 460" />
+      <path d="M 180 50 L 180 530" />
+      <path d="M 380 50 L 380 530" />
+      <path d="M 540 50 L 540 530" />
+      <!-- Diagonal arterial avenues -->
+      <path d="M 50 500 L 400 120 L 630 120" stroke="#252C3D" stroke-width="6"/>
+      <path d="M 180 520 L 580 200" stroke="#252C3D" stroke-width="5"/>
+    </g>
+
+    <!-- Geofenced Boundary Polygon -->
+    <polygon points="120,100 520,70 600,400 240,490" fill="#02D2E3" fill-opacity="0.05" stroke="#02D2E3" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="140" y="125" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">ZONE_ALPHA // AUTHORIZED CORRIDOR</text>
+
+    <!-- Active Vehicle Track Route (Cyan Glow) -->
+    <path d="M 180 460 L 280 460 L 380 320 L 380 180 L 500 120" fill="none" stroke="url(#cyanLineGrad)" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Breadcrumb pings -->
+    <circle cx="180" cy="460" r="4" fill="#02D2E3" />
+    <circle cx="280" cy="460" r="4" fill="#02D2E3" />
+    <circle cx="380" cy="320" r="4" fill="#02D2E3" />
+    <circle cx="380" cy="180" r="4" fill="#02D2E3" />
+
+    <!-- Leading Vehicle Marker (Vehicle #07) -->
+    <g transform="translate(500, 120)">
+      <circle cx="0" cy="0" r="16" fill="#02D2E3" fill-opacity="0.2" />
+      <circle cx="0" cy="0" r="8" fill="#02D2E3" />
+      <circle cx="0" cy="0" r="2" fill="#0E0F14" />
+      
+      <!-- Callout HUD label -->
+      <line x1="12" y1="-12" x2="40" y2="-40" stroke="#02D2E3" stroke-width="1.5" />
+      <line x1="40" y1="-40" x2="160" y2="-40" stroke="#02D2E3" stroke-width="1.5" />
+      <rect x="40" y="-70" width="120" height="28" fill="#0E0F14" stroke="#02D2E3" stroke-width="1" />
+      <text x="48" y="-55" font-family="'Space Grotesk', monospace" font-size="8" fill="#02D2E3" font-weight="700">TRUCK_07 // EN ROUTE</text>
+      <text x="48" y="-45" font-family="'Space Grotesk', monospace" font-size="8" fill="#FFFFFF">SPEED: 78 KM/H</text>
+    </g>
+
+    <!-- Map Coordinate Watermark -->
+    <text x="20" y="555" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8">SECTOR: NCR_LOGISTICS_HUB // LAT: 28.5355° N LON: 77.3910° E</text>
+  </g>
+
+  <!-- Right Side: OBD-II & CAN-Bus Telemetry Gauges -->
+  <g transform="translate(745, 100)">
+    <!-- Vehicle Health & Diagnostics Card -->
+    <rect width="415" height="275" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.2" stroke-width="1" />
+    <rect width="415" height="34" fill="#1B1D24" />
+    <text x="18" y="22" font-family="'Space Grotesk', monospace" font-size="11" fill="#02D2E3" font-weight="700">CAN-BUS TELEMETRICS // UNIT_07</text>
+
+    <!-- Gauges Row -->
+    <g transform="translate(30, 60)">
+      <!-- Speed Gauge -->
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#1B1D24" stroke-width="8" />
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#02D2E3" stroke-width="8" stroke-dasharray="200" stroke-dashoffset="65" stroke-linecap="round"/>
+      <text x="50" y="48" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">78</text>
+      <text x="50" y="65" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="8" fill="#B6C1C8">KM/H</text>
+
+      <!-- RPM Gauge -->
+      <circle cx="175" cy="50" r="45" fill="none" stroke="#1B1D24" stroke-width="8" />
+      <circle cx="175" cy="50" r="45" fill="none" stroke="#02D2E3" stroke-width="8" stroke-dasharray="200" stroke-dashoffset="85" stroke-linecap="round"/>
+      <text x="175" y="48" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">2,450</text>
+      <text x="175" y="65" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="8" fill="#B6C1C8">ENGINE RPM</text>
+
+      <!-- Fuel Level Gauge -->
+      <circle cx="300" cy="50" r="45" fill="none" stroke="#1B1D24" stroke-width="8" />
+      <circle cx="300" cy="50" r="45" fill="none" stroke="#02D2E3" stroke-width="8" stroke-dasharray="200" stroke-dashoffset="45" stroke-linecap="round"/>
+      <text x="300" y="48" text-anchor="middle" font-family="'Oswald', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">82%</text>
+      <text x="300" y="65" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="8" fill="#B6C1C8">FUEL LEVEL</text>
+    </g>
+
+    <!-- Telemetry Diagnostic Codes -->
+    <g transform="translate(20, 190)" font-family="'Space Grotesk', monospace" font-size="9">
+      <rect width="375" height="65" fill="#1B1D24" stroke="#02D2E3" stroke-opacity="0.3"/>
+      <text x="15" y="22" fill="#B6C1C8">COOLANT TEMP: <tspan fill="#FFFFFF">89°C [OPTIMAL]</tspan></text>
+      <text x="200" y="22" fill="#B6C1C8">TIRE PRESSURE: <tspan fill="#FFFFFF">33.2 PSI</tspan></text>
+      <text x="15" y="46" fill="#B6C1C8">DIAGNOSTIC TROUBLE CODES: <tspan fill="#02D2E3">0 DTC (CLEAN)</tspan></text>
+      <text x="200" y="46" fill="#B6C1C8">IDLE EFFICIENCY: <tspan fill="#FFFFFF">96.8%</tspan></text>
+    </g>
+
+    <!-- Bottom Analytics & Alert Feed Card -->
+    <g transform="translate(0, 295)">
+      <rect width="415" height="285" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.2" stroke-width="1" />
+      <rect width="415" height="34" fill="#1B1D24" />
+      <text x="18" y="22" font-family="'Space Grotesk', monospace" font-size="11" fill="#02D2E3" font-weight="700">EVENT TELEMETRY LOG</text>
+
+      <g transform="translate(18, 55)" font-family="'Space Grotesk', monospace" font-size="9">
+        <text x="0" y="0" fill="#02D2E3">10:42:15</text>
+        <text x="70" y="0" fill="#FFFFFF">GEO-CORRIDOR INGRESS: ZONE_ALPHA</text>
+
+        <text x="0" y="32" fill="#02D2E3">10:39:04</text>
+        <text x="70" y="32" fill="#FFFFFF">HARSH BRAKING TELEMETRY: 0.18G (NORMAL)</text>
+
+        <text x="0" y="64" fill="#02D2E3">10:30:22</text>
+        <text x="70" y="64" fill="#FFFFFF">DISPATCH DISPATCHED // DESTINATION HUB 04</text>
+
+        <text x="0" y="96" fill="#02D2E3">10:15:00</text>
+        <text x="70" y="96" fill="#FFFFFF">ODOMETER SYNC: 14,892.4 KM</text>
+      </g>
+
+      <!-- Architecture Stack Badges -->
+      <g transform="translate(18, 220)">
+        <rect x="0" y="0" width="85" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="42" y="15" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">PYTHON</text>
+
+        <rect x="95" y="0" width="85" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="137" y="15" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">FASTAPI</text>
+
+        <rect x="190" y="0" width="85" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="232" y="15" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">SQLITE</text>
+
+        <rect x="285" y="0" width="90" height="24" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="330" y="15" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">TELEMATICS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Outer Brackets -->
+  <g stroke="#02D2E3" stroke-width="2" fill="none">
+    <path d="M 20 50 L 20 20 L 50 20" />
+    <path d="M 1180 50 L 1180 20 L 1150 20" />
+    <path d="M 20 700 L 20 730 L 50 730" />
+    <path d="M 1180 700 L 1180 730 L 1150 730" />
+  </g>
+  <text x="20" y="14" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8" letter-spacing="2">PROJECT_02 // FLEET_MONITORING_SYSTEM</text>
+</svg>

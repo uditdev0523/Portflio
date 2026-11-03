@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <pattern id="audioGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#02D2E3" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+    <linearGradient id="spectroGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#02D2E3" stop-opacity="0.2"/>
+      <stop offset="40%" stop-color="#02D2E3" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#FFB300" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF2A55" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="#0E0F14" />
+  <rect width="1200" height="750" fill="url(#audioGrid)" />
+
+  <!-- Top Telemetry Header -->
+  <g transform="translate(40, 30)">
+    <rect width="1120" height="45" fill="#141720" stroke="#02D2E3" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="12" fill="#02D2E3" font-weight="700" letter-spacing="2">NEURAL AUDIO FORENSICS // DEEPFAKE VOICE CLONING DETECTION</text>
+    <text x="800" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#B6C1C8">SAMPLING: 44.1kHz // 16-BIT PCM</text>
+    <circle cx="1080" cy="23" r="5" fill="#FF2A55" />
+    <text x="1050" y="27" font-family="'Space Grotesk', monospace" font-size="10" fill="#FF2A55" text-anchor="end">ANOMALY DETECTED</text>
+  </g>
+
+  <!-- Left Side: Spectrogram & Waveform Analysis -->
+  <g transform="translate(40, 100)">
+    <!-- Spectrogram Card -->
+    <rect width="680" height="580" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.15" stroke-width="1" />
+    
+    <!-- Audio Waveform oscillogram -->
+    <g transform="translate(30, 20)">
+      <text x="0" y="15" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">RAW TEMPORAL WAVEFORM // TIME DOMAIN</text>
+      <rect x="0" y="25" width="620" height="110" fill="#0E0F14" stroke="#02D2E3" stroke-opacity="0.2" />
+      <line x1="0" y1="80" x2="620" y2="80" stroke="#DFE5E9" stroke-opacity="0.2" />
+
+      <!-- Synthesized Speech Waveform with High-Frequency Phase Discontinuities -->
+      <path d="M 0 80 Q 20 20 40 80 T 80 80 T 120 40 T 160 120 T 200 70 T 240 95 T 280 20 T 320 135 T 360 80 T 400 30 T 440 120 T 480 80 T 520 65 T 560 90 T 600 80 L 620 80" fill="none" stroke="#02D2E3" stroke-width="1.8" />
+      
+      <!-- Phase artifact marker -->
+      <rect x="270" y="30" width="60" height="98" fill="#FF2A55" fill-opacity="0.1" stroke="#FF2A55" stroke-dasharray="3 3"/>
+      <text x="275" y="44" font-family="'Space Grotesk', monospace" font-size="8" fill="#FF2A55">VOCAL ARTIFACT</text>
+    </g>
+
+    <!-- Mel-Frequency Spectrogram Heatmap Waterfall -->
+    <g transform="translate(30, 180)">
+      <text x="0" y="15" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">MEL-FREQUENCY SPECTROGRAM (MFCC FORENSICS)</text>
+      <rect x="0" y="25" width="620" height="230" fill="#0E0F14" stroke="#02D2E3" stroke-opacity="0.2" />
+
+      <!-- Spectral Heatmap Columns (Synthesized) -->
+      <g transform="translate(10, 35)">
+        <!-- Generate colorful spectral energy bars -->
+        <rect x="0" y="20" width="18" height="190" fill="url(#spectroGrad)" />
+        <rect x="22" y="10" width="18" height="200" fill="url(#spectroGrad)" />
+        <rect x="44" y="50" width="18" height="160" fill="url(#spectroGrad)" />
+        <rect x="66" y="80" width="18" height="130" fill="url(#spectroGrad)" />
+        <rect x="88" y="30" width="18" height="180" fill="url(#spectroGrad)" />
+        <rect x="110" y="15" width="18" height="195" fill="url(#spectroGrad)" />
+        <rect x="132" y="70" width="18" height="140" fill="url(#spectroGrad)" />
+        <rect x="154" y="90" width="18" height="120" fill="url(#spectroGrad)" />
+        <rect x="176" y="40" width="18" height="170" fill="url(#spectroGrad)" />
+        <rect x="198" y="25" width="18" height="185" fill="url(#spectroGrad)" />
+        <rect x="220" y="10" width="18" height="200" fill="url(#spectroGrad)" />
+        <rect x="242" y="60" width="18" height="150" fill="url(#spectroGrad)" />
+        
+        <!-- Synthetic Vocoder Glitch Signatures in Higher Bands -->
+        <rect x="264" y="5" width="22" height="205" fill="#FF2A55" fill-opacity="0.8" />
+        <rect x="290" y="8" width="22" height="202" fill="#FF2A55" fill-opacity="0.75" />
+        
+        <rect x="316" y="40" width="18" height="170" fill="url(#spectroGrad)" />
+        <rect x="338" y="30" width="18" height="180" fill="url(#spectroGrad)" />
+        <rect x="360" y="75" width="18" height="135" fill="url(#spectroGrad)" />
+        <rect x="382" y="20" width="18" height="190" fill="url(#spectroGrad)" />
+        <rect x="404" y="15" width="18" height="195" fill="url(#spectroGrad)" />
+        <rect x="426" y="45" width="18" height="165" fill="url(#spectroGrad)" />
+        <rect x="448" y="85" width="18" height="125" fill="url(#spectroGrad)" />
+        <rect x="470" y="35" width="18" height="175" fill="url(#spectroGrad)" />
+        <rect x="492" y="25" width="18" height="185" fill="url(#spectroGrad)" />
+        <rect x="514" y="60" width="18" height="150" fill="url(#spectroGrad)" />
+        <rect x="536" y="30" width="18" height="180" fill="url(#spectroGrad)" />
+        <rect x="558" y="40" width="18" height="170" fill="url(#spectroGrad)" />
+        <rect x="580" y="80" width="18" height="130" fill="url(#spectroGrad)" />
+      </g>
+    </g>
+
+    <!-- Audio Metrics -->
+    <g transform="translate(30, 480)" font-family="'Space Grotesk', monospace" font-size="9">
+      <rect width="620" height="70" fill="#1B1D24" stroke="#02D2E3" stroke-opacity="0.3" />
+      <text x="20" y="25" fill="#B6C1C8">SPECTRAL ROLLOFF: <tspan fill="#FFFFFF">8.42 kHz</tspan></text>
+      <text x="220" y="25" fill="#B6C1C8">ZERO CROSSING RATE: <tspan fill="#FFFFFF">0.082</tspan></text>
+      <text x="420" y="25" fill="#B6C1C8">PITCH JITTER: <tspan fill="#FF2A55">HIGH VARIANCE</tspan></text>
+      
+      <text x="20" y="50" fill="#B6C1C8">VOICE TRACT HARMONICS: <tspan fill="#FFB300">UNNATURAL ATTENUATION (VOCODER TRACE)</tspan></text>
+    </g>
+  </g>
+
+  <!-- Right Side: Threat Classification & Banking Workflow Simulation -->
+  <g transform="translate(745, 100)">
+    <rect width="415" height="580" fill="#141720" stroke="#DFE5E9" stroke-opacity="0.15" stroke-width="1" />
+    <rect width="415" height="34" fill="#1B1D24" />
+    <text x="18" y="22" font-family="'Space Grotesk', monospace" font-size="11" fill="#02D2E3" font-weight="700">CLASSIFICATION ENGINE // RESULT</text>
+
+    <!-- Synthetic Fraud Risk Meter -->
+    <g transform="translate(24, 60)">
+      <text x="0" y="0" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">SYNTHETIC SPEECH PROBABILITY</text>
+      <text x="0" y="35" font-family="'Oswald', sans-serif" font-size="36" font-weight="700" fill="#FF2A55">98.4% CLONED</text>
+      
+      <!-- Critical Alert Badge -->
+      <rect x="0" y="55" width="365" height="50" fill="#240D13" stroke="#FF2A55" stroke-width="1.5" />
+      <text x="18" y="78" font-family="'Space Grotesk', monospace" font-size="10" font-weight="700" fill="#FF2A55">VERDICT: SYNTHETIC TTS / ELEVENLABS REPLICA</text>
+      <text x="18" y="93" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8">Authentication failed. High risk transaction intercepted.</text>
+    </g>
+
+    <!-- Banking Step Simulation -->
+    <g transform="translate(24, 200)">
+      <text x="0" y="0" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">BANKING TRANSACTION SHIELD WORKFLOW</text>
+
+      <g transform="translate(0, 15)" font-family="'Space Grotesk', monospace" font-size="9">
+        <rect x="0" y="0" width="365" height="42" fill="#1B1D24" stroke="#DFE5E9" stroke-opacity="0.2"/>
+        <circle cx="20" cy="21" r="6" fill="#02D2E3"/>
+        <text x="36" y="25" fill="#FFFFFF">1. INCOMING VOICE OTP CONFIRMATION CALL</text>
+
+        <rect x="0" y="52" width="365" height="42" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <circle cx="20" cy="73" r="6" fill="#02D2E3"/>
+        <text x="36" y="77" fill="#02D2E3" font-weight="700">2. REAL-TIME SPECTRAL FORENSICS SCAN (50ms)</text>
+
+        <rect x="0" y="104" width="365" height="42" fill="#1B1D24" stroke="#FF2A55" stroke-width="1.5"/>
+        <circle cx="20" cy="125" r="6" fill="#FF2A55"/>
+        <text x="36" y="129" fill="#FF2A55" font-weight="700">3. CHALLENGE STEP TRIGGERED: BIOMETRIC SHIELD</text>
+      </g>
+    </g>
+
+    <!-- Technical Stack Badges -->
+    <g transform="translate(24, 460)">
+      <text x="0" y="0" font-family="'Space Grotesk', monospace" font-size="10" fill="#B6C1C8" letter-spacing="1">CORE TECHNOLOGIES</text>
+      <g transform="translate(0, 15)">
+        <rect x="0" y="0" width="80" height="25" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="40" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">PYTHON</text>
+
+        <rect x="90" y="0" width="80" height="25" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="130" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">PYTORCH</text>
+
+        <rect x="180" y="0" width="85" height="25" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="222" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">LIBROSA</text>
+
+        <rect x="275" y="0" width="90" height="25" fill="#1B1D24" stroke="#02D2E3" stroke-width="1"/>
+        <text x="320" y="16" text-anchor="middle" font-family="'Space Grotesk', monospace" font-size="9" fill="#02D2E3">MFCC / AI</text>
+      </g>
+      <text x="0" y="65" font-family="'Space Grotesk', monospace" font-size="8" fill="#B6C1C8">STATUS: CORE ALGORITHMIC RESEARCH &amp; PIPELINE TESTED</text>
+    </g>
+  </g>
+
+  <!-- Outer Brackets -->
+  <g stroke="#02D2E3" stroke-width="2" fill="none">
+    <path d="M 20 50 L 20 20 L 50 20" />
+    <path d="M 1180 50 L 1180 20 L 1150 20" />
+    <path d="M 20 700 L 20 730 L 50 730" />
+    <path d="M 1180 700 L 1180 730 L 1150 730" />
+  </g>
+  <text x="20" y="14" font-family="'Space Grotesk', monospace" font-size="9" fill="#B6C1C8" letter-spacing="2">PROJECT_03 // VOICE_CLONING_FRAUD_DETECTION</text>
+</svg>
