@@ -1,13 +1,21 @@
 /**
  * Telemetry Web Audio Synthesizer
- * Zero-asset, high-precision procedural sound design inspired by racing HUDs
+ * Production-hardened procedural sound design (Web Audio API)
+ * Handles browser autoplay policies, suspension recovery & localStorage persistence
  */
 
 class TelemetryAudio {
   constructor() {
     this.ctx = null;
     this.enabled = false;
-    this.initUserTriggered = false;
+    this.storageKey = "ups_telemetry_audio_enabled";
+    
+    // Check persisted user preference (default muted)
+    try {
+      this.enabled = localStorage.getItem(this.storageKey) === "true";
+    } catch (e) {
+      this.enabled = false;
+    }
   }
 
   init() {
@@ -18,19 +26,28 @@ class TelemetryAudio {
         this.ctx = new AudioContext();
       }
     } catch (e) {
-      console.warn("Telemetry audio unavailable", e);
+      console.warn("[Telemetry Audio] Web Audio API unavailable:", e);
+    }
+  }
+
+  ensureRunningContext() {
+    if (!this.ctx) this.init();
+    if (this.ctx && this.ctx.state === "suspended") {
+      this.ctx.resume().catch(() => {});
     }
   }
 
   toggle() {
     this.init();
     if (!this.ctx) return false;
-    
-    if (this.ctx.state === "suspended") {
-      this.ctx.resume();
-    }
-    
+
+    this.ensureRunningContext();
     this.enabled = !this.enabled;
+
+    try {
+      localStorage.setItem(this.storageKey, String(this.enabled));
+    } catch (e) {}
+
     if (this.enabled) {
       this.playBootChime();
     }
@@ -38,7 +55,10 @@ class TelemetryAudio {
   }
 
   playClick() {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled) return;
+    this.ensureRunningContext();
+    if (!this.ctx || this.ctx.state !== "running") return;
+
     try {
       const t = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
@@ -48,8 +68,8 @@ class TelemetryAudio {
       osc.frequency.setValueAtTime(1400, t);
       osc.frequency.exponentialRampToValueAtTime(700, t + 0.04);
 
-      gain.gain.setValueAtTime(0.06, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.04);
+      gain.gain.setValueAtTime(0.05, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
 
       osc.connect(gain);
       gain.connect(this.ctx.destination);
@@ -60,7 +80,10 @@ class TelemetryAudio {
   }
 
   playHover() {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled) return;
+    this.ensureRunningContext();
+    if (!this.ctx || this.ctx.state !== "running") return;
+
     try {
       const t = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
@@ -70,7 +93,7 @@ class TelemetryAudio {
       osc.frequency.setValueAtTime(2200, t);
       osc.frequency.setValueAtTime(2800, t + 0.015);
 
-      gain.gain.setValueAtTime(0.02, t);
+      gain.gain.setValueAtTime(0.018, t);
       gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
 
       osc.connect(gain);
@@ -82,31 +105,37 @@ class TelemetryAudio {
   }
 
   playPing() {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled) return;
+    this.ensureRunningContext();
+    if (!this.ctx || this.ctx.state !== "running") return;
+
     try {
       const t = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
 
       osc.type = "triangle";
-      osc.frequency.setValueAtTime(987.77, t); // B5 note
-      osc.frequency.exponentialRampToValueAtTime(1975.53, t + 0.08); // B6 note
+      osc.frequency.setValueAtTime(987.77, t); // B5
+      osc.frequency.exponentialRampToValueAtTime(1975.53, t + 0.09); // B6
 
-      gain.gain.setValueAtTime(0.08, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+      gain.gain.setValueAtTime(0.06, t);
+      gain.gain.exponentialRampToValueAtTime(0.0005, t + 0.16);
 
       osc.connect(gain);
       gain.connect(this.ctx.destination);
 
       osc.start(t);
-      osc.stop(t + 0.15);
+      osc.stop(t + 0.16);
     } catch (e) {}
   }
 
   playBootChime() {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled) return;
+    this.ensureRunningContext();
+    if (!this.ctx || this.ctx.state !== "running") return;
+
     try {
-      const notes = [440, 554.37, 659.25, 880]; // A major telemetry arpeggio
+      const notes = [440, 554.37, 659.25, 880];
       notes.forEach((freq, i) => {
         const t = this.ctx.currentTime + (i * 0.04);
         const osc = this.ctx.createOscillator();
@@ -115,8 +144,8 @@ class TelemetryAudio {
         osc.type = "sine";
         osc.frequency.setValueAtTime(freq, t);
 
-        gain.gain.setValueAtTime(0.05, t);
-        gain.gain.exponentialRampToValueAtTime(0.0005, t + 0.08);
+        gain.gain.setValueAtTime(0.04, t);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
 
         osc.connect(gain);
         gain.connect(this.ctx.destination);

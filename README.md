@@ -154,3 +154,4 @@ Double-click `index.html` to open directly in any modern web browser (Chrome, Ed
 * **Engineering Portfolio & Content:** &copy; 2026 Udit Pratap Singh.
 * **Art Direction:** Inspired by the visual telemetry aesthetic of KIMI / GRIDO1 Racing Systems.
 * **License:** MIT License.
+

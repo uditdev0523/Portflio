@@ -10,16 +10,21 @@
   <meta name="author" content="Udit Pratap Singh">
   <meta name="keywords" content="Udit Pratap Singh, Computer Science, Software Developer, AI, Machine Learning, PyTorch, OpenCV, AKTU, NIET, Portfolio, KIMI, Telemetry">
 
+  <!-- Performance Optimization: Resource Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Open Graph & Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Udit Pratap Singh — Engineering Portfolio">
   <meta property="og:description" content="Computer Science Engineering Student | Software Developer | AI &amp; Data Science Enthusiast. Inspired by racing telemetry and high-performance engineering.">
-  <meta property="og:url" content="https://uditdev0523.github.io/Portfolio-website-/">
+  <meta property="og:url" content="https://uditdev0523.github.io/Portflio/">
   <meta property="og:image" content="assets/images/hero-portrait.svg">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Theme Color -->
   <meta name="theme-color" content="#0E0F14">
+  <meta name="color-scheme" content="dark light">
 
   <!-- Favicon / Brand Symbol -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E0F14'/><path d='M8 6 L8 26 L24 26' stroke='%2302D2E3' stroke-width='4' fill='none'/><circle cx='20' cy='12' r='4' fill='%2302D2E3'/></svg>">
@@ -27,6 +32,15 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/telemetry.css">
+
+  <!-- No-Script Fallback: Ensures zero page-lock if JS is disabled -->
+  <noscript>
+    <style>
+      .telemetry-preloader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      .telemetry-cursor-ring, .telemetry-cursor-dot { display: none !important; }
+    </style>
+  </noscript>
 </head>
 
 <body class="is-loading">
@@ -685,13 +699,16 @@
           <!-- Left: Verified Contact Information & Resume Action -->
           <div class="contact-meta-card">
             <div class="contact-meta-item">
-              <span class="meta-label">DIRECT EMAIL UPLINK</span>
+              <span class="meta-label">DIRECT EMAIL UPLINK (PRIMARY)</span>
               <div class="copy-email-box">
-                <span class="email-string">uditdev0523@gmail.com</span>
+                <span class="email-string">uditpratapsingh014@gmail.com</span>
                 <button type="button" id="copy-email-btn" class="btn-copy-email">
                   [ COPY ]
                 </button>
                 <span id="copy-email-feedback" class="copy-feedback-msg">[COPIED]</span>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted-dark); margin-top: 0.35rem;">
+                SECONDARY ALIAS: uditdev0523@gmail.com
               </div>
             </div>
 
@@ -927,3 +944,4 @@
   <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
+

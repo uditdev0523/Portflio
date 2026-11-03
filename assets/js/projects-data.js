@@ -181,3 +181,4 @@ export const projectsData = [
     statusNote: "Core architecture implemented and evaluated against AKTU curriculum criteria."
   }
 ];
+

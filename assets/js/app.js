@@ -1,6 +1,6 @@
 /**
  * Udit Pratap Singh — Engineering Portfolio Application
- * Core Orchestrator & Telemetry Interactions
+ * Core Orchestrator & Telemetry Interactions (Fortified MNC Standard)
  */
 
 import { projectsData } from "./projects-data.js";
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Setup System Telemetry Clock
   initTelemetryClock();
 
-  // 3. Audio Toggle Hook
+  // 3. Audio Toggle Hook & Restored State
   initAudioControls();
 
-  // 4. Preloader Boot Sequence
+  // 4. Preloader Boot Sequence with Fail-Safe Timeout
   initPreloader();
 
   // 5. Navigation & Mobile Drawer
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 6. Project Render & Filter System
   initProjects();
 
-  // 7. Modal System (Projects & Resume)
+  // 7. Accessible Modal System (Projects & Resume)
   initModals();
 
   // 8. Contact Form Telemetry Simulator
@@ -60,12 +60,19 @@ function initTelemetryClock() {
 }
 
 /* -------------------------------------------------------------
- * 2. Audio Design Controls
+ * 2. Audio Design Controls & Persisted State
  * ----------------------------------------------------------- */
 function initAudioControls() {
   const toggleBtn = document.getElementById("audio-toggle-btn");
   const waveIcon = document.getElementById("audio-waves-indicator");
   if (!toggleBtn) return;
+
+  // Restore state from audio manager
+  if (telemetryAudio.enabled) {
+    toggleBtn.classList.add("audio-active");
+    toggleBtn.setAttribute("aria-label", "Audio Enabled (Click to Mute)");
+    if (waveIcon) waveIcon.textContent = "AUDIO: ON [ACTIVE]";
+  }
 
   toggleBtn.addEventListener("click", () => {
     const active = telemetryAudio.toggle();
@@ -88,7 +95,7 @@ function initAudioControls() {
 }
 
 /* -------------------------------------------------------------
- * 3. Preloader Veil & Boot Sequence
+ * 3. Preloader Veil & Boot Sequence with Fail-Safe
  * ----------------------------------------------------------- */
 function initPreloader() {
   const preloader = document.getElementById("telemetry-preloader");
@@ -109,9 +116,26 @@ function initPreloader() {
 
   let currentProgress = 0;
   let logIndex = 0;
+  let isDone = false;
+
+  function finish() {
+    if (isDone) return;
+    isDone = true;
+    preloader.classList.add("preloader-complete");
+    document.body.classList.remove("is-loading");
+    telemetryAudio.playPing();
+  }
+
+  // Hard fail-safe: Ensure preloader NEVER locks user even if tab in background
+  const failSafeTimeout = setTimeout(finish, 1800);
 
   const interval = setInterval(() => {
-    currentProgress += Math.floor(Math.random() * 8) + 4;
+    if (isDone) {
+      clearInterval(interval);
+      return;
+    }
+
+    currentProgress += Math.floor(Math.random() * 9) + 5;
     if (currentProgress > 100) currentProgress = 100;
 
     if (progressText) progressText.textContent = `${currentProgress}%`;
@@ -131,13 +155,10 @@ function initPreloader() {
 
     if (currentProgress >= 100) {
       clearInterval(interval);
-      setTimeout(() => {
-        preloader.classList.add("preloader-complete");
-        document.body.classList.remove("is-loading");
-        telemetryAudio.playPing();
-      }, 350);
+      clearTimeout(failSafeTimeout);
+      setTimeout(finish, 300);
     }
-  }, 40);
+  }, 35);
 }
 
 /* -------------------------------------------------------------
@@ -162,7 +183,7 @@ function initNavigation() {
   if (menuToggle && mobileDrawer) {
     menuToggle.addEventListener("click", () => {
       const isOpen = mobileDrawer.classList.toggle("drawer-open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.classList.toggle("toggle-active", isOpen);
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
@@ -229,9 +250,9 @@ function initProjects() {
         </div>
 
         <div class="project-media-wrap">
-          <img src="${prj.image}" alt="${prj.title} telemetry preview" loading="lazy" class="project-media-img" />
+          <img src="${prj.image}" alt="${prj.title} telemetry architecture preview" loading="lazy" decoding="async" class="project-media-img" width="1200" height="750" />
           <div class="project-media-overlay">
-            <button type="button" class="btn-inspect-telemetry" data-inspect="${prj.id}">
+            <button type="button" class="btn-inspect-telemetry" data-inspect="${prj.id}" aria-label="Inspect ${prj.title} telemetry">
               <span class="bracket">[</span> INSPECT TELEMETRY <span class="bracket">]</span>
             </button>
           </div>
@@ -259,12 +280,12 @@ function initProjects() {
             </button>
             <div class="project-links-icons">
               ${prj.githubUrl ? `
-                <a href="${prj.githubUrl}" target="_blank" rel="noopener noreferrer" class="link-icon" title="View GitHub Repository" aria-label="GitHub Repository">
+                <a href="${prj.githubUrl}" target="_blank" rel="noopener noreferrer" class="link-icon" title="View GitHub Repository" aria-label="GitHub Repository for ${prj.title}">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </a>
               ` : ""}
               ${prj.liveUrl ? `
-                <a href="${prj.liveUrl}" target="_blank" rel="noopener noreferrer" class="link-icon link-live" title="View Live Production Demo" aria-label="Live Demo">
+                <a href="${prj.liveUrl}" target="_blank" rel="noopener noreferrer" class="link-icon link-live" title="View Live Production Demo" aria-label="Live Demo for ${prj.title}">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
               ` : ""}
@@ -280,7 +301,7 @@ function initProjects() {
     grid.querySelectorAll("[data-inspect]").forEach(btn => {
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-inspect");
-        openProjectModal(id);
+        openProjectModal(id, btn);
       });
     });
   }
@@ -299,11 +320,12 @@ function initProjects() {
 }
 
 /* -------------------------------------------------------------
- * 6. Modal Systems (Project Inspector & Resume)
+ * 6. Accessible Modal Systems (Focus Trapping & Escape Key)
  * ----------------------------------------------------------- */
+let lastActiveElement = null;
+
 function initModals() {
   const modalBackdrop = document.getElementById("project-modal-backdrop");
-  const modalContainer = document.getElementById("project-modal-container");
   const modalCloseBtn = document.getElementById("modal-close-btn");
 
   const resumeModal = document.getElementById("resume-modal-backdrop");
@@ -314,6 +336,12 @@ function initModals() {
     if (modalBackdrop) modalBackdrop.classList.remove("modal-active");
     if (resumeModal) resumeModal.classList.remove("modal-active");
     document.body.style.overflow = "";
+
+    // Return focus to trigger
+    if (lastActiveElement && typeof lastActiveElement.focus === "function") {
+      lastActiveElement.focus();
+      lastActiveElement = null;
+    }
   }
 
   if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
@@ -337,21 +365,26 @@ function initModals() {
 
   openResumeBtns.forEach(btn => {
     btn.addEventListener("click", () => {
+      lastActiveElement = btn;
       if (resumeModal) {
         resumeModal.classList.add("modal-active");
         document.body.style.overflow = "hidden";
         telemetryAudio.playPing();
+        resumeCloseBtn?.focus();
       }
     });
   });
 }
 
-function openProjectModal(projectId) {
+function openProjectModal(projectId, triggerBtn) {
   const prj = projectsData.find(p => p.id === projectId);
   if (!prj) return;
 
+  lastActiveElement = triggerBtn || document.activeElement;
+
   const modalBackdrop = document.getElementById("project-modal-backdrop");
   const modalBody = document.getElementById("project-modal-content");
+  const modalCloseBtn = document.getElementById("modal-close-btn");
   if (!modalBackdrop || !modalBody) return;
 
   modalBody.innerHTML = `
@@ -366,7 +399,7 @@ function openProjectModal(projectId) {
     <p class="modal-project-tagline">${prj.tagline}</p>
 
     <div class="modal-image-stage">
-      <img src="${prj.image}" alt="${prj.title} Telemetry Architecture" class="modal-feature-img" />
+      <img src="${prj.image}" alt="${prj.title} Telemetry Architecture Diagram" class="modal-feature-img" width="1200" height="750" />
     </div>
 
     <!-- Telemetry Readouts Grid -->
@@ -429,15 +462,26 @@ function openProjectModal(projectId) {
   modalBackdrop.classList.add("modal-active");
   document.body.style.overflow = "hidden";
   telemetryAudio.playPing();
+  modalCloseBtn?.focus();
 }
 
 /* -------------------------------------------------------------
- * 7. Contact Form Telemetry Simulator
+ * 7. Contact Form Telemetry Simulator & Direct Mailto Linker
  * ----------------------------------------------------------- */
 function initContactForm() {
   const form = document.getElementById("telemetry-contact-form");
   const statusBox = document.getElementById("form-transmission-status");
   if (!form) return;
+
+  const inputs = form.querySelectorAll("input, textarea");
+  inputs.forEach(input => {
+    input.addEventListener("input", () => {
+      if (statusBox && statusBox.classList.contains("status-error")) {
+        statusBox.className = "form-status";
+        statusBox.style.display = "none";
+      }
+    });
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -455,7 +499,6 @@ function initContactForm() {
       return;
     }
 
-    // Basic email regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       if (statusBox) {
@@ -473,8 +516,8 @@ function initContactForm() {
     telemetryAudio.playBootChime();
 
     setTimeout(() => {
-      // Create mailto link for direct transmission reliability
-      const mailtoUrl = `mailto:uditdev0523@gmail.com?subject=${encodeURIComponent("[Uplink from Portfolio] " + subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + email + "\n\nMessage:\n" + message)}`;
+      // Primary verified email: uditpratapsingh014@gmail.com with cc uditdev0523@gmail.com
+      const mailtoUrl = `mailto:uditpratapsingh014@gmail.com?cc=uditdev0523@gmail.com&subject=${encodeURIComponent("[Uplink from Portfolio] " + subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + email + "\n\nMessage:\n" + message)}`;
       
       if (statusBox) {
         statusBox.className = "form-status status-success";
@@ -482,18 +525,18 @@ function initContactForm() {
           <span>[TRANSMISSION COMPILED SUCCESSFULLY]</span>
           <br>
           <a href="${mailtoUrl}" class="direct-mail-link" style="color: #02D2E3; text-decoration: underline; margin-top: 6px; display: inline-block;">
-            Click here to confirm dispatch via your local email client &rarr;
+            Click here to confirm dispatch via your email client &rarr;
           </a>
         `;
       }
 
       form.reset();
-    }, 800);
+    }, 700);
   });
 }
 
 /* -------------------------------------------------------------
- * 8. Quick Actions (Copy Email, Print Resume)
+ * 8. Quick Actions (Multi-Email Copy, Print Resume)
  * ----------------------------------------------------------- */
 function initQuickActions() {
   const copyBtn = document.getElementById("copy-email-btn");
@@ -501,7 +544,7 @@ function initQuickActions() {
 
   if (copyBtn) {
     copyBtn.addEventListener("click", () => {
-      const email = "uditdev0523@gmail.com";
+      const email = "uditpratapsingh014@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
         telemetryAudio.playPing();
         if (copyFeedback) {
@@ -512,7 +555,6 @@ function initQuickActions() {
           }, 2400);
         }
       }).catch(() => {
-        // Fallback
         prompt("Copy verified developer email:", email);
       });
     });
